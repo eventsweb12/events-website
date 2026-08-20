@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap');
+
+.header,
+.header *,
+.header *::before,
+.header *::after {
+  box-sizing: border-box;
+}
+
+.header {
+  --ink: #0b0b0c;
+  --paper: #f4f2ec;
+  --muted: #a9a6a0;
+  --amber: #ffb020;
+  --line: rgba(245, 243, 236, 0.16);
+
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px clamp(20px, 4vw, 56px) 0;
+}
+
+.header__logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+/* ---------- Desktop links ---------- */
+
+.header__links {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 26px;
+  align-items: center;
+}
+
+.header__links a {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.header__links a:hover {
+  color: var(--amber);
+}
+
+.header__links small {
+  font-size: 10.5px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+@media (min-width: 1180px) {
+  .header__links {
+    display: flex;
+  }
+}
+
+/* ---------- Right side ---------- */
+
+.header__nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.header__phone {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 14px;
+  background: rgba(245, 243, 236, 0.1);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 16px;
+}
+
+.header__chevron {
+  font-size: 11px;
+  opacity: 0.7;
+  transform: translateY(-1px);
+}
+
+@media (min-width: 760px) {
+  .header__phone {
+    display: inline-flex;
+  }
+}
+
+.header__lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  background: rgba(245, 243, 236, 0.1);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.header__lang:hover {
+  background: rgba(245, 243, 236, 0.16);
+}
+
+.header__lang:active {
+  transform: scale(0.97);
+}
+
+.header__lang span {
+  transition: color 0.15s ease;
+}
+
+.header__lang span.is-active {
+  color: var(--paper);
+}
+
+.header__lang-sep {
+  color: var(--line);
+}
+.header__menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+}
+
+.header__menu span {
+  width: 16px;
+  height: 1.5px;
+  background: var(--paper);
+  display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header__menu--open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.header__menu--open span:nth-child(2) {
+  opacity: 0;
+}
+.header__menu--open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+@media (min-width: 1180px) {
+  .header__menu {
+    display: none;
+  }
+}
+
+/* ---------- Mobile dropdown ---------- */
+
+.header__mobile {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--ink);
+  border-top: 1px solid transparent;
+  transition: max-height 0.25s ease;
+}
+
+.header__mobile--open {
+  max-height: 70vh;
+  border-top-color: var(--line);
+  overflow-y: auto;
+}
+
+.header__mobile ul {
+  list-style: none;
+  margin: 0;
+  padding: 16px clamp(20px, 4vw, 56px) 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header__mobile a {
+  display: flex;
+  flex-direction: column;
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.header__mobile small {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+@media (min-width: 1180px) {
+  .header__mobile {
+    display: none;
+  }
+}
