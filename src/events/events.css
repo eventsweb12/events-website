@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+
+.events,
+.events *,
+.events *::before,
+.events *::after {
+  box-sizing: border-box;
+}
+
+.events {
+  --ink: #0b0b0c;
+  --paper: #f4f2ec;
+  --muted: #a9a6a0;
+  --amber: #ffb020;
+  --magenta: #e23f79;
+  --line: rgba(245, 243, 236, 0.14);
+
+  position: relative;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: clamp(64px, 9vw, 120px) clamp(20px, 4vw, 56px) clamp(72px, 9vw, 120px);
+  width: 100%;
+}
+
+/* ---------- Intro / heading ---------- */
+
+.events__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+.events__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.events__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 26px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--amber), var(--magenta));
+}
+
+.events__heading {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: clamp(34px, 5.5vw, 62px);
+  line-height: 0.98;
+  color: var(--paper);
+}
+
+/* ---------- Status states ---------- */
+
+.events__status {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* ---------- Grid ---------- */
+
+.events__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 32px);
+}
+
+/* ---------- Card ---------- */
+
+.events__card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.events__image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #141416;
+}
+
+.events__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.1) brightness(0.9) saturate(1.02);
+  transform: scale(1.02);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.events__card:hover .events__image,
+.events__card:focus-visible .events__image {
+  transform: scale(1.08);
+  filter: grayscale(0) brightness(1) saturate(1.08);
+}
+
+.events__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 11, 12, 0) 55%, rgba(11, 11, 12, 0.55) 100%);
+}
+
+.events__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 16px;
+}
+
+.events__meta {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.events__name {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: clamp(17px, 1.6vw, 22px);
+  line-height: 1.2;
+  color: var(--paper);
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  padding-bottom: 6px;
+}
+
+.events__name::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--amber), var(--magenta));
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.events__card:hover .events__name::after,
+.events__card:focus-visible .events__name::after {
+  width: 100%;
+}
+
+.events__desc {
+  margin: 4px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(244, 242, 236, 0.65);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------- Skeleton loading state ---------- */
+
+.events__card--skeleton {
+  pointer-events: none;
+}
+
+.events__image--skeleton,
+.events__line--skeleton {
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.04) 30%,
+    rgba(255, 255, 255, 0.09) 50%,
+    rgba(255, 255, 255, 0.04) 70%
+  );
+  background-size: 200% 100%;
+  animation: events-shimmer 1.6s ease-in-out infinite;
+}
+
+.events__line--skeleton {
+  margin-top: 16px;
+  height: 18px;
+  width: 60%;
+  border-radius: 2px;
+}
+
+@keyframes events-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ---------- Georgian: swap Anton → FiraGO ---------- */
+
+.events[data-lang='ka'] .events__heading,
+.events[data-lang='ka'] .events__name {
+  font-family: 'FiraGO', sans-serif;
+  font-feature-settings: 'case' on;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.events[data-lang='ka'] .events__desc,
+.events[data-lang='ka'] .events__eyebrow,
+.events[data-lang='ka'] .events__meta {
+  font-family: 'FiraGO', sans-serif;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .events__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .events {
+    padding: clamp(48px, 14vw, 72px) 20px clamp(56px, 12vw, 80px);
+  }
+
+  .events__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .events__name {
+    font-size: 21px;
+  }
+
+  .events__name::after {
+    width: 36px;
+    transition: none;
+  }
+
+  .events__desc {
+    font-size: 14px;
+    -webkit-line-clamp: 3;
+  }
+
+  .events__image {
+    transform: none;
+  }
+
+  .events__card:active .events__image {
+    filter: grayscale(0) brightness(1) saturate(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events__image,
+  .events__name::after {
+    transition: none;
+  }
+}

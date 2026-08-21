@@ -45,10 +45,7 @@ export default function Header({
         </ul>
 
         <div className="header__nav-right">
-          <a className="header__phone" href={`tel:${phone.replace(/[^+\d]/g, '')}`}>
-            {t.callUs}: {phone}
-            <span className="header__chevron" aria-hidden="true">⌄</span>
-          </a>
+         
 
           <button
             className="header__lang"
