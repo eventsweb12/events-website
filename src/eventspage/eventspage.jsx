@@ -1,8 +1,7 @@
 'use client'
 
 import React, { useEffect, useState, useMemo } from 'react'
-import { useParams } from 'next/navigation'
-import Link from 'next/link'
+import { useParams, useRouter } from 'next/navigation'
 import './eventspage.css'
 import { useLanguage } from '../language/LanguageContext'
 import EventspageHero from './eventspagehero'
@@ -50,6 +49,7 @@ const LABELS = {
 
 export default function Eventspage() {
   const { id: slug } = useParams()
+  const router = useRouter()
   const { lang } = useLanguage()
   const t = LABELS[lang] || LABELS.en
 
@@ -98,6 +98,17 @@ export default function Eventspage() {
     return Array.from(new Set(all))
   }, [event])
 
+  // Go back to wherever the user came from (/#work or /eventslisting?page=N).
+  // If there's no history to go back to (e.g. direct link/shared URL),
+  // fall back to the events listing page instead of doing nothing.
+  function goBack() {
+    if (typeof window !== 'undefined' && window.history.length > 1) {
+      router.back()
+    } else {
+      router.push('/eventslisting')
+    }
+  }
+
   if (status === 'loading') {
     return (
       <section className="eventpage" data-lang={lang}>
@@ -114,12 +125,12 @@ export default function Eventspage() {
           <p className="eventpage__status">
             {status === 'notfound' ? t.notFound : t.error}
           </p>
-          <Link href="/#work" className="eventpage__back">
+          <button type="button" onClick={goBack} className="eventpage__back">
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M15 5L8 12L15 19" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             {t.back}
-          </Link>
+          </button>
         </div>
       </section>
     )
@@ -143,12 +154,12 @@ export default function Eventspage() {
 
   return (
     <section className="eventpage" data-lang={lang}>
-      <Link href="/#work" className="eventpage__back">
+      <button type="button" onClick={goBack} className="eventpage__back">
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M15 5L8 12L15 19" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         {t.back}
-      </Link>
+      </button>
 
       <EventspageHero slides={slides} name={name} venue={venue} year={event.year} meta={meta} />
 

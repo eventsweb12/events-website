@@ -489,3 +489,9 @@
     height: 44px;
   }
 }
+.eventpage__back {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}

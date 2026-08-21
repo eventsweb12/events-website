@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { href: '/#home', en: 'Home', ka: 'მთავარი' },
   { href: '/#about', en: 'About Us', ka: 'ჩვენ შესახებ' },
   { href: '/#services', en: 'Services', ka: 'სერვისები' },
-  { href: '/#work', en: 'Our Work / Portfolio', ka: 'განხორციელებული პროექტები' },
+  { href: '/eventslisting', en: 'Our Work / Portfolio', ka: 'განხორციელებული პროექტები' },
   { href: '/#clients', en: 'Clients / Brands', ka: 'ლოგოები' },
   { href: '/#why-us', en: 'Why Us', ka: 'რატომ თქვენ' },
   { href: '/#contact', en: 'Contact', ka: 'კონტაქტი' },
