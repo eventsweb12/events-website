@@ -74,7 +74,7 @@ export default function Events() {
   const showControls = status === 'ready' && events.length > 1
 
   return (
-    <section className="events" id="events" data-lang={lang}>
+    <section className="events"  data-lang={lang} id="work">
       <div className="events__intro">
         <span className="events__eyebrow">{t.eyebrowLabel}</span>
 
@@ -164,9 +164,9 @@ export default function Events() {
 
             return (
               <SwiperSlide key={ev._id}>
-                <a
-                  className="events__card"
-                  href={ev.slug ? `/events/${ev.slug}` : undefined}
+                
+                 <a className="events__card"
+                 href={`/events/${ev._id}`}
                 >
                   <div className="events__image-wrap">
                     {ev.mainImage && (

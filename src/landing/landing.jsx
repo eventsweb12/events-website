@@ -16,7 +16,7 @@ export default function Hero({
   const badgeText = `\u2726 ${badgeSub} ${badgeYear} \u2726 ${badgeSub} ${badgeYear} `
 
   return (
-    <section className="hero">
+    <section className="hero" id="home">
       <div className="hero__media">
         <img className="hero__image" src={heroImage} alt="" />
         <div className="hero__scrim" />

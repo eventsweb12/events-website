@@ -28,7 +28,7 @@ export default function WhyUs() {
   const t = LABELS[lang] || LABELS.en
 
   return (
-    <section className="whyus" id="whyus" data-lang={lang}>
+    <section className="whyus" id="why-us" data-lang={lang}>
       <div className="whyus__intro">
         <span className="whyus__eyebrow">{t.eyebrow}</span>
         <h2 className="whyus__heading">{t.heading}</h2>

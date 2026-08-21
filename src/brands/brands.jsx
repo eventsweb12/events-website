@@ -45,7 +45,7 @@ export default function Brands() {
   const t = LABELS[lang] || LABELS.en
 
   return (
-    <section className="brands" id="brands" data-lang={lang}>
+    <section className="brands" id="clients" data-lang={lang}>
       <div className="brands__intro">
         <span className="brands__eyebrow">{t.eyebrow}</span>
         <h2 className="brands__heading">{t.heading}</h2>
