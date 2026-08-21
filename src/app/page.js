@@ -6,7 +6,9 @@ import Services from '../services/services'
 import Events from '../events/events'
 import Brands from '../brands/brands'
 import WhyUs from '../whyus/whyus'
+import Blog from '../blog/blog'
 import Cta from '../cta/cta'
+
 
 
 export default function Home() {
@@ -18,6 +20,7 @@ export default function Home() {
       <Events />
       <Brands />
       <WhyUs />
+      <Blog />
       <Cta />
     </div>
   );
