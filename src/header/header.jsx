@@ -24,11 +24,21 @@ export default function Header({
   phone = '+1 (555) 010-0100',
 }) {
   const [open, setOpen] = React.useState(false)
+  const [scrolled, setScrolled] = React.useState(false)
   const { lang, toggleLang } = useLanguage()
   const t = COPY[lang]
 
+  React.useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 12)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="header">
+    <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <nav className="header__nav">
         <a className="header__logo" href="#">
           {logoText}
@@ -45,8 +55,6 @@ export default function Header({
         </ul>
 
         <div className="header__nav-right">
-         
-
           <button
             className="header__lang"
             type="button"
