@@ -154,6 +154,12 @@ function Footer() {
           <span>© {year} Your Agency. All rights reserved.</span>
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms">Terms of Use</a>
+          <span className="footer__credit">
+            Designed &amp; developed by{' '}
+            <a href="https://sitefy.ge/" target="_blank" rel="noopener noreferrer">
+              Sitefy
+            </a>
+          </span>
         </div>
         <button type="button" className="footer__top-btn" onClick={scrollToTop}>
           Back to top

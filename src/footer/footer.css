@@ -252,6 +252,22 @@
   color: var(--muted);
 }
 
+.footer__credit {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.footer__credit a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer__credit a:hover {
+  color: var(--amber);
+}
+
 .footer__top-btn {
   display: inline-flex;
   align-items: center;
