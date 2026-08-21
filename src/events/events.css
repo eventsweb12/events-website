@@ -52,6 +52,14 @@
   background: linear-gradient(90deg, var(--amber), var(--magenta));
 }
 
+.events__heading-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
 .events__heading {
   margin: 0;
   font-family: 'Anton', sans-serif;
@@ -61,6 +69,72 @@
   color: var(--paper);
 }
 
+/* ---------- Counter + arrows ---------- */
+
+.events__controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 6px;
+}
+
+.events__count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.events__count-active {
+  color: var(--paper);
+  font-size: 15px;
+}
+
+.events__count-sep {
+  opacity: 0.5;
+}
+
+.events__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.events__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.events__arrow:hover:not(:disabled),
+.events__arrow:focus-visible:not(:disabled) {
+  border-color: transparent;
+  background: linear-gradient(90deg, var(--amber), var(--magenta));
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.events__arrow:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.events__arrow:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
 /* ---------- Status states ---------- */
 
 .events__status {
@@ -68,12 +142,32 @@
   font-size: 15px;
 }
 
-/* ---------- Grid ---------- */
+/* ---------- Skeleton grid (loading state only) ---------- */
 
 .events__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(20px, 2.5vw, 32px);
+}
+
+/* ---------- Swiper track ---------- */
+
+.events__swiper {
+  overflow: visible;
+  padding-bottom: 4px;
+}
+
+.events__swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.events__swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.events__swiper .swiper-slide .events__card {
+  width: 100%;
 }
 
 /* ---------- Card ---------- */
@@ -213,7 +307,8 @@
 
 .events[data-lang='ka'] .events__desc,
 .events[data-lang='ka'] .events__eyebrow,
-.events[data-lang='ka'] .events__meta {
+.events[data-lang='ka'] .events__meta,
+.events[data-lang='ka'] .events__count {
   font-family: 'FiraGO', sans-serif;
 }
 
