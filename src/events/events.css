@@ -20,7 +20,7 @@
   background: var(--ink);
   color: var(--paper);
   font-family: 'Inter', system-ui, sans-serif;
-  padding: clamp(64px, 9vw, 120px) clamp(20px, 4vw, 56px) clamp(72px, 9vw, 120px);
+  padding: clamp(64px, 9vw, 70px) clamp(20px, 4vw, 56px) clamp(72px, 9vw, 70px);
   width: 100%;
 }
 

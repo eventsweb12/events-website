@@ -17,7 +17,7 @@ const COPY = {
       { word: 'Precision', desc: 'to turn every idea into reality.' },
       { word: 'Energy', desc: 'to make every moment feel alive.' },
     ],
-    closing: [
+       closing: [
       'It’s not simply about creating events.',
       'It’s about creating atmosphere, emotion and stories that connect people.',
       'Because the best events are the ones people leave saying:',
@@ -51,9 +51,9 @@ export default function About() {
 
   return (
     <section className="about" id="about" data-lang={lang}>
-      <div className="about__inner">
-        <span className="about__eyebrow">{t.eyebrow}</span>
+      <span className="about__eyebrow">{t.eyebrow}</span>
 
+      <div className="about__top">
         <div className="about__lead">
           <p className="about__lead-line about__lead-line--big">{t.lead[0]}</p>
           <p className="about__lead-line">{t.lead[1]}</p>
@@ -61,26 +61,26 @@ export default function About() {
         </div>
 
         <ul className="about__pillars">
-          {t.pillars.map((p, i) => (
-            <li className="about__pillar" key={p.word} style={{ '--i': i }}>
+          {t.pillars.map((p) => (
+            <li className="about__pillar" key={p.word}>
               <span className="about__pillar-word">{p.word}</span>
               <span className="about__pillar-desc">{p.desc}</span>
             </li>
           ))}
         </ul>
+      </div>
 
-        <div className="about__closing">
-          <div className="about__closing-text">
-            {t.closing.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
-
-          <blockquote className="about__stamp">
-            <span className="about__stamp-mark" aria-hidden="true">“</span>
-            <p>{t.quote}</p>
-          </blockquote>
+      <div className="about__closing">
+        <div className="about__closing-text">
+          {t.closing.map((line) => (
+            <p key={line}>{line}</p>
+          ))}
         </div>
+
+        <blockquote className="about__stamp">
+          <span className="about__stamp-mark" aria-hidden="true">"</span>
+          <p>{t.quote}</p>
+        </blockquote>
       </div>
     </section>
   )

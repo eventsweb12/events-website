@@ -20,7 +20,7 @@
   background: var(--ink);
   color: var(--paper);
   font-family: 'Inter', system-ui, sans-serif;
-  padding-top: clamp(80px, 10vw, 140px);
+  padding-top: clamp(80px, 10vw, 40px);
 }
 
 /* ---------- Intro / heading ---------- */
