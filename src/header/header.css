@@ -252,7 +252,7 @@
 
 .header__logo img,
 .header__logo-img {
-  height: 54px;
+  height: 54px !important;
   width: auto;
   display: block;
   object-fit: contain;
