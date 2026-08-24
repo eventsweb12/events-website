@@ -57,7 +57,7 @@ const NAV_COLUMNS = [
       { label: 'Home', href: '/#home' },
       { label: 'About Us', href: '/#about' },
       { label: 'Why Us', href: '/#why-us' },
-      { label: 'Our Work / Portfolio', href: '/eventslisting' },
+      { label: 'Our Work ', href: '/eventslisting' },
       { label: 'Blog', href: '/bloglisting' },
     ],
   },
