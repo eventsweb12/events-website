@@ -252,15 +252,16 @@
 
 .header__logo img,
 .header__logo-img {
-  height: 54px !important;
+  height: 54px ;
   width: auto;
   display: block;
   object-fit: contain;
 }
 
-@media (min-width: 760px) {
-  .header__logo img,
-  .header__logo-img {
-    height: 44px;
-  }
+.header__logo img,
+.header__logo-img {
+  height: clamp(40px, 8vw, 54px);
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
