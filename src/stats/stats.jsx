@@ -7,11 +7,9 @@ import { useLanguage } from '../language/LanguageContext'
 const COPY = {
   en: {
     stats: [
-       { value: 290, suffix: '+', label: 'Projects delivered' },
-        { value: 50, suffix: '+', label: 'Clients served' },
+      { value: 290, suffix: '+', label: 'Projects delivered' },
+      { value: 50, suffix: '+', label: 'Clients served' },
       { value: 8, suffix: '+', label: 'Years of industry experience' },
-     
-     
     ],
   },
   ka: {
@@ -19,7 +17,6 @@ const COPY = {
       { value: 290, suffix: '+', label: 'განხორციელებული პროექტი' },
       { value: 50, suffix: '+', label: 'კმაყოფილი კლიენტი' },
       { value: 8, suffix: '+', label: 'წლიანი გამოცდილება ინდუსტრიაში' },
-      
     ],
   },
 }
@@ -28,7 +25,6 @@ function easeOutExpo(t) {
   return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
 }
 
-// Counts a value up to `target` once `active` becomes true.
 function useCountUp(target, active, duration = 1400) {
   const [value, setValue] = useState(0)
   const startRef = useRef(null)
@@ -102,7 +98,10 @@ export default function Stats() {
     <section className="stats" id="stats" data-lang={lang} ref={sectionRef}>
       <div className="stats__row">
         {t.stats.map((s, i) => (
-          <div className="stats__item" key={s.label}>
+          <div
+            className={`stats__item${i === 1 ? ' add-borders' : ''}`}
+            key={s.label}
+          >
             <div className="stats__value">
               <StatValue target={s.value} active={active} delay={i * 150} />
               <span className="stats__suffix">{s.suffix}</span>
