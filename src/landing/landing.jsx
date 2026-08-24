@@ -1,10 +1,10 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './landing.css'
 import Brands from '../brands/brands'
 
-const heroImage = '/bg.jpg' // swap for your own still or poster frame
+const heroImages = ['/backgrounds/bg1.jpg', '/backgrounds/bg2.jpg']
 
 export default function Hero({
   eyebrowVideo = 'Watch the reel',
@@ -15,12 +15,37 @@ export default function Hero({
   intro = 'Your Agency is a full-service experiential and event marketing studio producing storytelling-driven design, immersive brand experiences, and large-scale product launches for the world\u2019s leading brands.',
 }) {
   const badgeText = `\u2726 ${badgeSub} ${badgeYear} \u2726 ${badgeSub} ${badgeYear} `
+  const [activeImage, setActiveImage] = useState(0)
+
+  useEffect(() => {
+    if (heroImages.length < 2) return
+
+    const prefersReduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReduced) return
+
+    const id = setInterval(() => {
+      setActiveImage((i) => (i + 1) % heroImages.length)
+    }, 4000)
+
+    return () => clearInterval(id)
+  }, [])
 
   return (
     <>
       <section className="hero" id="home">
         <div className="hero__media">
-          <img className="hero__image" src={heroImage} alt="" />
+          {heroImages.map((src, i) => (
+            <img
+              key={src}
+              className={`hero__image${i === activeImage ? ' is-active' : ''}`}
+              src={src}
+              alt=""
+            />
+          ))}
           <div className="hero__scrim" />
           <div className="hero__clip" />
 
