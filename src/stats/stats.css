@@ -44,17 +44,18 @@
 .stats__item {
   display: flex;
   flex-flow: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
-  flex: 1;
   padding: 48px clamp(24px, 4vw, 90px);
   border-top: 1px solid var(--line);
+  text-align: center;
 }
 
 @media (min-width: 720px) {
   .stats__item {
-    padding: 80px 90px;
+    flex: 1 1 0;
+    padding: 80px 40px;
     border-top: none;
   }
 
@@ -88,11 +89,9 @@
   font-weight: 700;
   font-size: clamp(38px, 4.5vw, 54px);
   line-height: 1;
-  color: var(--amber);
+  color: #B31B1B;
   transform: translateY(-0.05em);
 }
-
-/* ---------- Label ---------- */
 
 .stats__label {
   font-size: 15px;
@@ -100,4 +99,5 @@
   letter-spacing: 0.005em;
   color: var(--muted);
   width: 180px;
+  text-align: center;
 }
