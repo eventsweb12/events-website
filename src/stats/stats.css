@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap');
+
+.stats,
+.stats *,
+.stats *::before,
+.stats *::after {
+  box-sizing: border-box;
+}
+
+.stats {
+  --ink: #0b0b0c;
+  --paper: #f4f2ec;
+  --muted: #a9a6a0;
+  --amber: #ffb020;
+  --line: rgba(245, 243, 236, 0.14);
+
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: clamp(28px, 5vw, 56px) clamp(20px, 4vw, 56px) clamp(48px, 8vw, 88px);
+}
+
+/* ---------- Row ---------- */
+
+.stats__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+@media (min-width: 720px) {
+  .stats__row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+}
+
+.stats__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 720px) {
+  .stats__item {
+    padding: 22px clamp(28px, 3vw, 48px) 0;
+    border-left: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+  }
+
+  .stats__item:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .stats__item:last-child {
+    padding-right: 0;
+  }
+}
+
+/* ---------- Number ---------- */
+
+.stats__value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.stats__number {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: clamp(48px, 6.5vw, 80px);
+  line-height: 1;
+  letter-spacing: 0.002em;
+  color: var(--paper);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+.stats__suffix {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: 1;
+  color: var(--amber);
+}
+
+.stats__label {
+  max-width: 26ch;
+  font-size: 14.5px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
