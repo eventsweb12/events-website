@@ -83,14 +83,13 @@ font-feature-settings: 'tnum';
 }
 
 .stats__suffix {
-font-family: 'Google Sans', 'Inter', sans-serif;
-font-weight: 700;
-font-size: clamp(26px, 3vw, 38px);
-line-height: 1;
-color: var(--amber);
-transform: translateY(-0.05em);
+  font-family: 'Google Sans', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(38px, 4.5vw, 54px);
+  line-height: 1;
+  color: var(--amber);
+  transform: translateY(-0.05em);
 }
-
 /* ---------- Label ---------- */
 
 .stats__label {

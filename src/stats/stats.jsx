@@ -7,16 +7,19 @@ import { useLanguage } from '../language/LanguageContext'
 const COPY = {
   en: {
     stats: [
+       { value: 290, suffix: '+', label: 'Projects delivered' },
+        { value: 50, suffix: '+', label: 'Clients served' },
       { value: 8, suffix: '+', label: 'Years of industry experience' },
-      { value: 290, suffix: '+', label: 'Projects delivered' },
-      { value: 50, suffix: '+', label: 'Clients served' },
+     
+     
     ],
   },
   ka: {
     stats: [
-      { value: 8, suffix: '+', label: 'წლიანი გამოცდილება ინდუსტრიაში' },
       { value: 290, suffix: '+', label: 'განხორციელებული პროექტი' },
       { value: 50, suffix: '+', label: 'კმაყოფილი კლიენტი' },
+      { value: 8, suffix: '+', label: 'წლიანი გამოცდილება ინდუსტრიაში' },
+      
     ],
   },
 }
