@@ -39,7 +39,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 8px clamp(12px, 3vw, 16px) 8px;
+  padding: 2px clamp(12px, 3vw, 16px) 2px;
 }
 
 .header__logo {
@@ -68,7 +68,7 @@
   line-height: 1.25;
   color: var(--paper);
   text-decoration: none;
-  font-size: 13.5px;
+  font-size: 15.5px;
   font-weight: 500;
   transition: color 0.15s ease;
 }
