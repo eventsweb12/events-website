@@ -21,6 +21,7 @@
   color: var(--ink);
   font-family: "Google Sans", sans-serif;
   padding: clamp(60px, 11vw, 60px) clamp(20px, 4vw, 56px);
+  width: 100%;
 }
 
 /* ---------- Eyebrow ---------- */
