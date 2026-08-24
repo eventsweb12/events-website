@@ -212,9 +212,11 @@
   font-family: 'Varela Round', 'Google Sans', sans-serif;
   font-weight: 400;
   text-transform: none;
-  font-size: clamp(40px, 8vw, 84px);
+  font-size: clamp(36px, 7.5vw, 72px);
   line-height: 0.98;
   letter-spacing: 0.002em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .hero__headline-line {

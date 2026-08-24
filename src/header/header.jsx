@@ -15,7 +15,7 @@ const NAV_LINKS = [
   { href: '/#contact', en: 'Contact', ka: 'კონტაქტი' },
 ]
 
-const logo = '../logo/index.html'
+const logo =  '/logos/logo.gif'
 
 const COPY = {
   en: { callUs: 'Call us' },
@@ -43,9 +43,9 @@ export default function Header({
   return (
     <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <nav className="header__nav">
-        <a className="header__logo" href="#">
-          {logoText}
-        </a>
+      <a className="header__logo" href="#">
+  <img src={logo} alt={logoText} />
+</a>
 
         <ul className="header__links">
           {NAV_LINKS.map((link) => (

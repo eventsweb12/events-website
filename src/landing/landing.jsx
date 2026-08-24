@@ -11,7 +11,7 @@ export default function Hero({
   badgeTop = 'TOP 100',
   badgeYear = '2026',
   badgeSub = 'EVENT AGENCIES',
-  headline = ['Leading', 'experiential', 'marketing agency'],
+  headline = ['Creative events &', 'Brand experiences'],
   intro = 'Your Agency is a full-service experiential and event marketing studio producing storytelling-driven design, immersive brand experiences, and large-scale product launches for the world\u2019s leading brands.',
 }) {
   const badgeText = `\u2726 ${badgeSub} ${badgeYear} \u2726 ${badgeSub} ${badgeYear} `

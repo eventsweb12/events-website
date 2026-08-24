@@ -39,7 +39,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 10px clamp(20px, 4vw, 56px) 10px;
+  padding: 8px clamp(12px, 3vw, 16px) 8px;
 }
 
 .header__logo {
@@ -242,5 +242,25 @@
 @media (min-width: 1180px) {
   .header__mobile {
     display: none;
+  }
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo img,
+.header__logo-img {
+  height: 54px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+@media (min-width: 760px) {
+  .header__logo img,
+  .header__logo-img {
+    height: 64px;
   }
 }
