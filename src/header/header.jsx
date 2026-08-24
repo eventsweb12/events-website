@@ -15,6 +15,8 @@ const NAV_LINKS = [
   { href: '/#contact', en: 'Contact', ka: 'კონტაქტი' },
 ]
 
+const logo = '../logo/index.html'
+
 const COPY = {
   en: { callUs: 'Call us' },
   ka: { callUs: 'დაგვირეკეთ' },
