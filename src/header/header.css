@@ -19,18 +19,15 @@
   inset: 0 0 auto 0;
   z-index: 50;
   font-family: 'Google Sans', 'Inter', system-ui, sans-serif;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  transition: background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-}
-
-.header--scrolled {
-  background: rgba(11, 11, 12, 0.694);
+  background: rgba(11, 11, 12, 0.64);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   border-bottom: 1px solid rgba(245, 243, 236, 0.08);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.header--scrolled {
+  background: rgba(11, 11, 12, 0.85);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
 

@@ -58,9 +58,9 @@ export default function Header({
         <ul className="header__links">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href}>
+              <Link href={link.href}>
                 <span>{link[lang]}</span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -95,9 +95,9 @@ export default function Header({
         <ul>
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} onClick={() => setOpen(false)}>
+              <Link href={link.href} onClick={() => setOpen(false)}>
                 <span>{link[lang]}</span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
