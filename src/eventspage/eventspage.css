@@ -148,7 +148,7 @@
 
 .eventpage__hero-title {
   margin: 0;
-  font-family: 'Anton', sans-serif;
+  font-family: "Google Sans", sans-serif;
   font-weight: 400;
   font-size: clamp(36px, 6.5vw, 84px);
   line-height: 0.98;
@@ -430,7 +430,7 @@
 /* ---------- Georgian: swap Anton → FiraGO ---------- */
 
 .eventpage[data-lang='ka'] .eventpage__hero-title {
-  font-family: 'FiraGO', sans-serif;
+  font-family: "Varela Round", sans-serif;
   font-feature-settings: 'case' on;
   font-weight: 600;
   letter-spacing: 0;
@@ -442,7 +442,7 @@
 .eventpage[data-lang='ka'] .eventpage__role-text,
 .eventpage[data-lang='ka'] .eventpage__meta-row,
 .eventpage[data-lang='ka'] .eventpage__back {
-  font-family: 'FiraGO', sans-serif;
+  font-family: "Varela Round", sans-serif;
 }
 
 /* ---------- Responsive ---------- */

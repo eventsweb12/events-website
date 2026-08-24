@@ -19,7 +19,7 @@
   position: relative;
   background: var(--paper);
   color: var(--ink);
-  font-family: 'Google Sans', 'Inter', system-ui, sans-serif;
+  font-family: "Google Sans", sans-serif;
   padding: clamp(60px, 11vw, 60px) clamp(20px, 4vw, 56px);
 }
 
