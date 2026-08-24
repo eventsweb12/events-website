@@ -2,6 +2,7 @@
 
 import React from 'react'
 import './header.css'
+import Link from 'next/link'
 import { useLanguage } from '../language/LanguageContext'
 
 const NAV_LINKS = [
@@ -15,7 +16,7 @@ const NAV_LINKS = [
   { href: '/#contact', en: 'Contact', ka: 'კონტაქტი' },
 ]
 
-const logo =  '/logos/logo.gif'
+const logo = '/logos/logo.gif'
 
 const COPY = {
   en: { callUs: 'Call us' },
@@ -40,12 +41,19 @@ export default function Header({
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const handleLogoClick = (e) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   return (
     <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <nav className="header__nav">
-      <a className="header__logo" href="#">
-  <img src={logo} alt={logoText} />
-</a>
+        <Link className="header__logo" href="/" onClick={handleLogoClick}>
+          <img src={logo} alt={logoText} />
+        </Link>
 
         <ul className="header__links">
           {NAV_LINKS.map((link) => (
