@@ -1,101 +1,102 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Varela+Round&display=swap');
 
 .stats,
 .stats *,
 .stats *::before,
 .stats *::after {
-  box-sizing: border-box;
+box-sizing: border-box;
 }
 
 .stats {
-  --ink: #0b0b0c;
-  --paper: #f4f2ec;
-  --muted: #6b6862;
-  --amber: #d98c00;
-  --line: rgba(11, 11, 12, 0.12);
+--ink: #0b0b0c;
+--paper: #f4f2ec;
+--muted: #6b6862;
+--amber: #d98c00;
+--line: rgba(11, 11, 12, 0.12);
 
-  position: relative;
-  left: 50%;
-  width: 100vw;
-  transform: translateX(-50%);
+position: relative;
+left: 50%;
+width: 100vw;
+transform: translateX(-50%);
 
-  background: var(--paper);
-  color: var(--ink);
-  font-family: 'Inter', system-ui, sans-serif;
-  padding: clamp(28px, 5vw, 48px) clamp(20px, 4vw, 56px);
+background: var(--paper);
+color: var(--ink);
+font-family: 'Google Sans', 'Inter', system-ui, sans-serif;
+padding: clamp(28px, 5vw, 48px) clamp(20px, 4vw, 56px);
 }
 
 /* ---------- Row of 3, full width ---------- */
 
 .stats__row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-  width: 100%;
-  border-top: 1px solid var(--line);
-  padding-top: 28px;
+display: grid;
+grid-template-columns: 1fr;
+gap: 28px;
+width: 100%;
+border-top: 1px solid var(--line);
+padding-top: 28px;
 }
 
 @media (min-width: 720px) {
-  .stats__row {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+.stats__row {
+grid-template-columns: repeat(3, 1fr);
+gap: 0;
   }
 }
 
 .stats__item {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
+display: flex;
+align-items: baseline;
+gap: 14px;
 }
 
 @media (min-width: 720px) {
-  .stats__item {
-    padding: 0 clamp(20px, 2.5vw, 40px);
-    border-left: 1px solid var(--line);
+.stats__item {
+padding: 0 clamp(20px, 2.5vw, 40px);
+border-left: 1px solid var(--line);
   }
 
-  .stats__item:first-child {
-    padding-left: 0;
-    border-left: none;
+.stats__item:first-child {
+padding-left: 0;
+border-left: none;
   }
 }
 
 /* ---------- Number ---------- */
 
 .stats__value {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: baseline;
-  gap: 3px;
+flex: 0 0 auto;
+display: flex;
+align-items: baseline;
+gap: 3px;
 }
 
 .stats__number {
-  font-family: 'Anton', sans-serif;
-  font-weight: 400;
-  font-size: clamp(34px, 4vw, 52px);
-  line-height: 1;
-  letter-spacing: 0.002em;
-  color: var(--ink);   /* შეცვლილია var(--paper)-დან */
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: 'tnum';
+font-family: 'Varela Round', 'Google Sans', sans-serif;
+font-weight: 400;
+font-size: clamp(34px, 4vw, 52px);
+line-height: 1;
+letter-spacing: 0.002em;
+color: var(--ink);
+font-variant-numeric: tabular-nums;
+font-feature-settings: 'tnum';
 }
 
 .stats__suffix {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: clamp(26px, 3vw, 38px);
-  line-height: 1;
-  color: var(--amber);
-  transform: translateY(-0.05em);
+font-family: 'Google Sans', 'Inter', sans-serif;
+font-weight: 700;
+font-size: clamp(26px, 3vw, 38px);
+line-height: 1;
+color: var(--amber);
+transform: translateY(-0.05em);
 }
 
 /* ---------- Label ---------- */
 
 .stats__label {
-  flex: 1 1 auto;
-  font-size: 13px;
-  line-height: 1.4;
-  letter-spacing: 0.005em;
-  color: var(--muted);
+flex: 1 1 auto;
+font-size: 13px;
+line-height: 1.4;
+letter-spacing: 0.005em;
+color: var(--muted);
 }

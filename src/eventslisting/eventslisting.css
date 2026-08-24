@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Varela+Round&display=swap');
 
 .eventslisting,
 .eventslisting *,
@@ -280,9 +280,9 @@
 
 .eventslisting[data-lang='ka'] .eventslisting__heading,
 .eventslisting[data-lang='ka'] .eventslisting__name {
-  font-family: 'FiraGO', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-feature-settings: 'case' on;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0;
 }
 
@@ -290,7 +290,7 @@
 .eventslisting[data-lang='ka'] .eventslisting__eyebrow,
 .eventslisting[data-lang='ka'] .eventslisting__meta,
 .eventslisting[data-lang='ka'] .eventslisting__page {
-  font-family: 'FiraGO', sans-serif;
+  font-family: 'Google Sans', sans-serif;
 }
 
 /* ---------- Responsive ---------- */

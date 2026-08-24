@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Varela+Round&display=swap');
 
 .about,
 .about *,
@@ -19,7 +19,7 @@
   position: relative;
   background: var(--paper);
   color: var(--ink);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Google Sans', 'Inter', system-ui, sans-serif;
   padding: clamp(60px, 11vw, 60px) clamp(20px, 4vw, 56px);
 }
 
@@ -69,7 +69,7 @@
 }
 
 .about__lead-line--big {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Varela Round', 'Google Sans', sans-serif;
   font-weight: 400;
   font-size: clamp(30px, 3.6vw, 46px);
   line-height: 1.14;
@@ -119,7 +119,7 @@
 }
 
 .about__pillar-word {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Varela Round', 'Google Sans', sans-serif;
   font-weight: 400;
   font-size: clamp(24px, 2.6vw, 32px);
   line-height: 1;
@@ -169,7 +169,7 @@
   top: clamp(-64px, -8vw, -40px);
   left: clamp(-12px, -2vw, -4px);
   z-index: 0;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Varela Round', 'Google Sans', sans-serif;
   font-size: clamp(160px, 22vw, 280px);
   line-height: 1;
   color: transparent;
@@ -182,7 +182,7 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Varela Round', 'Google Sans', sans-serif;
   font-weight: 400;
   font-size: clamp(32px, 5vw, 58px);
   line-height: 1.08;
@@ -197,17 +197,6 @@
   height: 3px;
   margin-top: 28px;
   background: linear-gradient(90deg, var(--amber), var(--magenta));
-}
-
-/* ---------- Georgian titles: swap Anton → FiraGO ---------- */
-
-.about[data-lang='ka'] .about__lead-line--big,
-.about[data-lang='ka'] .about__pillar-word,
-.about[data-lang='ka'] .about__stamp p {
-  font-family: 'FiraGO', sans-serif;
-  font-feature-settings: 'case' on;
-  font-weight: 600;
-  letter-spacing: 0;
 }
 
 /* ---------- Responsive ---------- */

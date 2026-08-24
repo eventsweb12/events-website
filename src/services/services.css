@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Varela+Round&display=swap');
 
 .services,
 .services *,
@@ -58,7 +58,7 @@
 
 .services__heading {
   margin: 0;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: clamp(34px, 5.5vw, 62px);
@@ -122,7 +122,7 @@
   display: inline-block;
   width: fit-content;
   max-width: 100%;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-weight: 400;
   font-size: clamp(24px, 3.6vw, 42px);
   line-height: 1.08;
@@ -201,19 +201,19 @@
   margin-top: 12px;
 }
 
-/* ---------- Georgian: swap Anton → FiraGO ---------- */
+/* ---------- Georgian: swap Anton → Varela Round, Inter → Google Sans ---------- */
 
 .services[data-lang='ka'] .services__heading,
 .services[data-lang='ka'] .services__row-title {
-  font-family: 'FiraGO', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-feature-settings: 'case' on;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0;
 }
 
 .services[data-lang='ka'] .services__row-desc,
 .services[data-lang='ka'] .services__eyebrow {
-  font-family: 'FiraGO', sans-serif;
+  font-family: 'Google Sans', sans-serif;
 }
 
 /* ---------- Mobile: tap-driven accordion, redesigned ---------- */

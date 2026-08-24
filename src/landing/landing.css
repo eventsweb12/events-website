@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Varela+Round&display=swap');
 
 .hero,
 .hero *,
@@ -28,7 +29,7 @@
 
   background: var(--ink);
   color: var(--paper);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Google Sans', 'Inter', system-ui, sans-serif;
   overflow: hidden;
 }
 
@@ -151,7 +152,7 @@
   fill: var(--paper);
   font-size: 10.5px;
   letter-spacing: 0.08em;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Google Sans', 'Inter', sans-serif;
 }
 
 .hero__badge-core {
@@ -208,7 +209,7 @@
 
 .hero__headline {
   margin: 0;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Varela Round', 'Google Sans', sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: clamp(40px, 8vw, 84px);
