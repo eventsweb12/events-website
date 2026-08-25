@@ -93,11 +93,11 @@
 .services__card {
   position: relative;
   background: var(--card-black);
-  padding: clamp(14px, 1.4vw, 20px);
+  padding: clamp(16px, 1.6vw, 22px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 6px;
+  gap: 8px;
   min-width: 0;
   height: 118px;
   border-radius: 8px;
@@ -118,33 +118,6 @@
   z-index: 2;
 }
 
-/* ghost background number */
-.services__card::after {
-  content: attr(data-number);
-  position: absolute;
-  right: -0.06em;
-  bottom: -0.16em;
-  z-index: 0;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: 700;
-  font-size: clamp(48px, 7vw, 80px);
-  line-height: 1;
-  color: currentColor;
-  opacity: 0.08;
-  pointer-events: none;
-  user-select: none;
-}
-
-.services__card-number {
-  position: relative;
-  z-index: 1;
-  font-family: 'Inter', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-}
-
 .services__card-title {
   position: relative;
   z-index: 1;
@@ -154,8 +127,8 @@
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 500;
-  font-size: clamp(14px, 1.15vw, 17px);
-  line-height: 1.15;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.18;
   color: var(--paper);
   transition: opacity 0.4s ease;
 }
@@ -180,8 +153,8 @@
   z-index: 1;
   margin: 0;
   font-family: 'Inter', sans-serif;
-  font-size: 11.5px;
-  line-height: 1.4;
+  font-size: 13px;
+  line-height: 1.48;
   color: rgba(244, 242, 236, 0.58);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -201,10 +174,6 @@
   color: var(--ink);
 }
 
-.services__card[data-variant='white'] .services__card-number {
-  color: var(--red-dark);
-}
-
 .services__card[data-variant='white'] .services__card-title {
   color: var(--ink);
 }
@@ -220,10 +189,6 @@
 .services__card[data-variant='red'] {
   background: linear-gradient(150deg, var(--red-bright), var(--red-dark));
   color: var(--paper);
-}
-
-.services__card[data-variant='red'] .services__card-number {
-  color: rgba(244, 242, 236, 0.72);
 }
 
 .services__card[data-variant='red'] .services__card-title {
@@ -280,12 +245,16 @@
   }
 
   .services__card {
-    height: 128px;
-    padding: 18px 18px;
+    height: 132px;
+    padding: 20px 18px;
   }
 
-  .services__card::after {
-    font-size: clamp(56px, 22vw, 84px);
+  .services__card-title {
+    font-size: clamp(17px, 4.6vw, 20px);
+  }
+
+  .services__card-desc {
+    font-size: 13px;
   }
 
   /* only first 4 cards show by default */
