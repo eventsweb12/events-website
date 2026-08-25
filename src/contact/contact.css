@@ -111,7 +111,7 @@
 @media (max-width: 560px) {
   .contactpage__row {
     flex-direction: column;
-    gap: 0;
+    gap: 2px;
   }
 }
 
