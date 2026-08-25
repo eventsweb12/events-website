@@ -134,6 +134,7 @@
   .hero__headline {
     white-space: normal;
     max-width: 95%;
+    font-size: 2.3rem;
   }
 }
 
