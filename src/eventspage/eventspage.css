@@ -12,8 +12,8 @@
   --ink: #0b0b0c;
   --paper: #f4f2ec;
   --muted: #a9a6a0;
-  --amber: #ffb020;
-  --magenta: #e23f79;
+  --red-bright: #ff2d3d;
+  --red-dark: #6b0f14;
   --line: rgba(245, 243, 236, 0.14);
 
   position: relative;
@@ -70,8 +70,8 @@
 
 .eventpage__back:hover {
   border-color: transparent;
-  background: linear-gradient(90deg, var(--amber), var(--magenta));
-  color: var(--ink);
+  background: linear-gradient(90deg, var(--red-bright), var(--red-dark));
+  color: var(--paper);
   transform: translateX(-2px);
 }
 
@@ -178,7 +178,7 @@
 
 .eventpage__hero-pagination .swiper-pagination-bullet-active {
   width: 24px;
-  background: linear-gradient(90deg, var(--amber), var(--magenta));
+  background: linear-gradient(90deg, var(--red-bright), var(--red-dark));
 }
 
 /* Hero arrows */
@@ -212,8 +212,8 @@
 
 .eventpage__hero-arrow:hover {
   border-color: transparent;
-  background: linear-gradient(90deg, var(--amber), var(--magenta));
-  color: var(--ink);
+  background: linear-gradient(90deg, var(--red-bright), var(--red-dark));
+  color: var(--paper);
 }
 
 .eventpage__hero-arrow.swiper-button-disabled {
@@ -246,7 +246,7 @@
   display: inline-block;
   width: 22px;
   height: 2px;
-  background: linear-gradient(90deg, var(--amber), var(--magenta));
+  background: linear-gradient(90deg, var(--red-bright), var(--red-dark));
 }
 
 /* Summary: about + sidebar */
@@ -396,8 +396,8 @@
 .eventpage__lightbox-close svg { width: 18px; height: 18px; }
 
 .eventpage__lightbox-close:hover {
-  background: linear-gradient(90deg, var(--amber), var(--magenta));
-  color: var(--ink);
+  background: linear-gradient(90deg, var(--red-bright), var(--red-dark));
+  color: var(--paper);
 }
 
 .eventpage__lightbox-nav {
@@ -423,8 +423,8 @@
 .eventpage__lightbox-nav--next { right: 24px; }
 
 .eventpage__lightbox-nav:hover {
-  background: linear-gradient(90deg, var(--amber), var(--magenta));
-  color: var(--ink);
+  background: linear-gradient(90deg, var(--red-bright), var(--red-dark));
+  color: var(--paper);
 }
 
 /* ---------- Georgian: swap Anton → FiraGO ---------- */
@@ -489,6 +489,7 @@
     height: 44px;
   }
 }
+
 .eventpage__back {
   background: none;
   border: none;

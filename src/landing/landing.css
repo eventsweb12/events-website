@@ -116,7 +116,7 @@
   margin: 0 auto;
   font-family: 'Varela Round', 'Google Sans', sans-serif;
   font-weight: 400;
-  font-size: clamp(18px, 3.6vw, 56px);
+  font-size: 2.7rem;
   line-height: 1.1;
   letter-spacing: 0.5px;
   text-transform: uppercase;

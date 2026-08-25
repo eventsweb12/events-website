@@ -3,6 +3,8 @@
 import React from 'react'
 import './footer.css'
 
+const logo = '/logos/logo.gif'
+
 const SOCIAL_LINKS = [
   {
     name: 'Instagram',
@@ -76,34 +78,11 @@ const NAV_COLUMNS = [
 function Footer() {
   const year = new Date().getFullYear()
 
-  const scrollToTop = () => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-  }
-
   return (
     <footer className="footer">
-      <div className="footer__cta">
-        <p className="footer__cta-eyebrow">Enquiries</p>
-        <h2 className="footer__cta-headline">
-          A project in mind? <em>Let's talk.</em>
-        </h2>
-        <div className="footer__cta-contact">
-          <a className="footer__cta-link" href="tel:+995000000000">
-            <small>Call</small>
-            <span>+995 000 00 00 00</span>
-          </a>
-          <a className="footer__cta-link" href="mailto:hello@youragency.com">
-            <small>Email</small>
-            <span>hello@youragency.com</span>
-          </a>
-        </div>
-      </div>
-
       <div className="footer__grid">
         <div>
-          <p className="footer__brand-name">YOUR AGENCY</p>
+          <img className="footer__brand-logo" src={logo} alt="Motion Concept" />
           <p className="footer__brand-tagline">
             A full-service experiential and event marketing studio producing
             storytelling-driven design and large-scale product launches for
@@ -111,8 +90,8 @@ function Footer() {
           </p>
           <div className="footer__social">
             {SOCIAL_LINKS.map((social) => (
-              <a
-                key={social.name}
+              
+              <a  key={social.name}
                 className="footer__social-link"
                 href={social.href}
                 target="_blank"
@@ -151,7 +130,7 @@ function Footer() {
 
       <div className="footer__bottom">
         <div className="footer__legal">
-          <span>© {year} Your Agency. All rights reserved.</span>
+          <span>© {year} Motion Concept. All rights reserved.</span>
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms">Terms of Use</a>
           <span className="footer__credit">
@@ -161,9 +140,6 @@ function Footer() {
             </a>
           </span>
         </div>
-        <button type="button" className="footer__top-btn" onClick={scrollToTop}>
-          Back to top
-        </button>
       </div>
     </footer>
   )

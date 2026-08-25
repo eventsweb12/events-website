@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import './services.css'
 import { useLanguage } from '../language/LanguageContext'
 
@@ -56,47 +56,31 @@ const COPY = {
     ],
   },
 }
+
 export default function Services() {
   const { lang } = useLanguage()
   const t = COPY[lang]
-  const [active, setActive] = useState(0) // 01 ღიაა თავიდანვე
-
-  function handleClick(i) {
-    setActive((prev) => (prev === i ? null : i)) // tap ხსნის/კეტავს
-  }
 
   return (
     <section className="services" id="services" data-lang={lang}>
-      <div className="services__intro">
-        <span className="services__eyebrow">
-          {t.eyebrowIndex} / {t.eyebrowLabel}
-        </span>
-        <h2 className="services__heading">{t.heading}</h2>
-      </div>
+      <div className="services__inner">
+        <div className="services__intro">
+          <span className="services__eyebrow">
+            {t.eyebrowIndex} / {t.eyebrowLabel}
+          </span>
+          <h2 className="services__heading">{t.heading}</h2>
+        </div>
 
-      <ul className="services__list">
-        {t.items.map((s, i) => (
-          <li
-            key={s.id}
-            className={`services__row${active === i ? ' is-active' : ''}`}
-            onClick={() => handleClick(i)}
-            onFocus={() => setActive(i)}
-            tabIndex={0}
-          >
-            <span className="services__row-number">{s.id}</span>
-
-            <div className="services__row-main">
-              <span className="services__row-title">{s.title}</span>
-              <p className="services__row-desc">{s.desc}</p>
+        <div className="services__grid">
+          {t.items.map((s) => (
+            <div className="services__card" key={s.id}>
+              <span className="services__card-number">{s.id}</span>
+              <h3 className="services__card-title">{s.title}</h3>
+              <p className="services__card-desc">{s.desc}</p>
             </div>
-
-            <span className="services__row-toggle" aria-hidden="true">
-              <span className="services__row-toggle-line services__row-toggle-line--v" />
-              <span className="services__row-toggle-line services__row-toggle-line--h" />
-            </span>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }

@@ -12,17 +12,17 @@ const COPY = {
       'An idea with the power to bring people together, create emotion and turn a moment into an unforgettable experience.',
       'From creative concept to flawless execution, every detail has one purpose — to create an event with its own character, energy and meaning.',
     ],
-    pillars: [
-      { word: 'Creativity', desc: 'to see beyond the expected.' },
-      { word: 'Precision', desc: 'to turn every idea into reality.' },
-      { word: 'Energy', desc: 'to make every moment feel alive.' },
-    ],
-       closing: [
+    closing: [
       'It’s not simply about creating events.',
       'It’s about creating atmosphere, emotion and stories that connect people.',
       'Because the best events are the ones people leave saying:',
     ],
     quote: 'That was truly something special.',
+    pillars: [
+      { word: 'Creativity', desc: 'to see beyond the expected.' },
+      { word: 'Precision', desc: 'to turn every idea into reality.' },
+      { word: 'Energy', desc: 'to make every moment feel alive.' },
+    ],
   },
   ka: {
     eyebrow: 'ჩვენ შესახებ',
@@ -31,17 +31,17 @@ const COPY = {
       'იდეით, რომელსაც შეუძლია ადამიანების გაერთიანება, ემოციის შექმნა და მომენტის დაუვიწყარ გამოცდილებად ქცევა.',
       'კრეატიული კონცეფციიდან იდეალურ შესრულებამდე, თითოეული დეტალი ერთ მიზანს ემსახურება — შეიქმნას ღონისძიება, რომელსაც თავისი ხასიათი აქვს და რომელიც ადამიანებს დარჩებათ.',
     ],
-    pillars: [
-      { word: 'კრეატიულობა', desc: 'ახალი ხედვების მოსაძებნად.' },
-      { word: 'სიზუსტე', desc: 'იდეის სრულყოფილად განსახორციელებლად.' },
-      { word: 'ენერგია', desc: 'თითოეული მომენტი ცოცხალი და განსაკუთრებული რომ იყოს.' },
-    ],
     closing: [
       'აქ არ იქმნება უბრალოდ ღონისძიებები.',
       'იქმნება ატმოსფერო, ემოცია და ისტორიები, რომლებიც ადამიანებს ერთმანეთთან აკავშირებს.',
       'რადგან საუკეთესო ღონისძიება ის არის, რომლის დასრულების შემდეგაც ამბობენ:',
     ],
     quote: 'ეს ნამდვილად განსაკუთრებული იყო.',
+    pillars: [
+      { word: 'კრეატიულობა', desc: 'ახალი ხედვების მოსაძებნად.' },
+      { word: 'სიზუსტე', desc: 'იდეის სრულყოფილად განსახორციელებლად.' },
+      { word: 'ენერგია', desc: 'თითოეული მომენტი ცოცხალი და განსაკუთრებული რომ იყოს.' },
+    ],
   },
 }
 
@@ -60,28 +60,28 @@ export default function About() {
           <p className="about__lead-line">{t.lead[2]}</p>
         </div>
 
-        <ul className="about__pillars">
-          {t.pillars.map((p) => (
-            <li className="about__pillar" key={p.word}>
-              <span className="about__pillar-word">{p.word}</span>
-              <span className="about__pillar-desc">{p.desc}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="about__closing">
+          <div className="about__closing-text">
+            {t.closing.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
 
-      <div className="about__closing">
-        <div className="about__closing-text">
-          {t.closing.map((line) => (
-            <p key={line}>{line}</p>
-          ))}
+          <blockquote className="about__stamp">
+            <span className="about__stamp-mark" aria-hidden="true">"</span>
+            <p>{t.quote}</p>
+          </blockquote>
         </div>
-
-        <blockquote className="about__stamp">
-          <span className="about__stamp-mark" aria-hidden="true">"</span>
-          <p>{t.quote}</p>
-        </blockquote>
       </div>
+
+      <ul className="about__pillars">
+        {t.pillars.map((p) => (
+          <li className="about__pillar" key={p.word}>
+            <span className="about__pillar-word">{p.word}</span>
+            <span className="about__pillar-desc">{p.desc}</span>
+          </li>
+        ))}
+      </ul>
     </section>
   )
 }

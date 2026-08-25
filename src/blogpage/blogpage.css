@@ -12,8 +12,8 @@
   --ink: #0b0b0c;
   --paper: #f4f2ec;
   --muted: #a9a6a0;
-  --amber: #ffb020;
-  --magenta: #e23f79;
+  --red-bright: #ff2d3d;
+  --red-dark: #6b0f14;
   --line: rgba(245, 243, 236, 0.14);
 
   position: relative;
@@ -71,8 +71,8 @@
 
 .blogpage__back:hover {
   border-color: transparent;
-  background: linear-gradient(90deg, var(--amber), var(--magenta));
-  color: var(--ink);
+  background: linear-gradient(90deg, var(--red-bright), var(--red-dark));
+  color: var(--paper);
   transform: translateX(-2px);
 }
 
@@ -179,7 +179,7 @@
 
 .blogpage__hero-pagination .swiper-pagination-bullet-active {
   width: 24px;
-  background: linear-gradient(90deg, var(--amber), var(--magenta));
+  background: linear-gradient(90deg, var(--red-bright), var(--red-dark));
 }
 
 /* Hero arrows */
@@ -213,8 +213,8 @@
 
 .blogpage__hero-arrow:hover {
   border-color: transparent;
-  background: linear-gradient(90deg, var(--amber), var(--magenta));
-  color: var(--ink);
+  background: linear-gradient(90deg, var(--red-bright), var(--red-dark));
+  color: var(--paper);
 }
 
 .blogpage__hero-arrow.swiper-button-disabled {
@@ -260,11 +260,11 @@
 }
 
 .blogpage__content ul li::marker {
-  color: var(--amber);
+  color: var(--red-bright);
 }
 
 .blogpage__content a {
-  color: var(--amber);
+  color: var(--red-bright);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -288,7 +288,7 @@
 .blogpage__content h3 { font-size: 20px; }
 
 .blogpage__content blockquote {
-  border-left: 2px solid var(--amber);
+  border-left: 2px solid var(--red-bright);
   margin: 24px 0;
   padding: 4px 0 4px 20px;
   color: var(--muted);
