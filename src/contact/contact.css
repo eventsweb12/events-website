@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css');
+
+.contactpage,
+.contactpage *,
+.contactpage *::before,
+.contactpage *::after {
+  box-sizing: border-box;
+}
+
+.contactpage {
+  --ink: #0b0b0c;
+  --paper: #f4f2ec;
+  --muted: #a9a6a0;
+  --red-bright: #ff2d3d;
+  --red-dark: #6b0f14;
+  --line: rgba(245, 243, 236, 0.14);
+
+  position: relative;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Google Sans", "Inter", sans-serif;
+  min-height: 100vh;
+  padding-bottom: clamp(80px, 10vw, 140px);
+  overflow: hidden;
+}
+
+.contactpage[data-lang='ka'] {
+  font-family: 'FiraGO', 'Google Sans', sans-serif;
+}
+
+/* ---------- Hero ---------- */
+
+.contactpage__hero {
+  position: relative;
+  padding: clamp(96px, 14vw, 168px) clamp(20px, 4vw, 56px) clamp(48px, 6vw, 72px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contactpage__eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin: 0 0 18px;
+}
+
+.contactpage__title {
+  margin: 0;
+  font-family: "Google Sans", "Inter", sans-serif;
+  font-weight: 400;
+  font-size: clamp(40px, 7vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+  max-width: 16ch;
+}
+
+.contactpage[data-lang='ka'] .contactpage__title {
+  font-family: 'FiraGO', 'Google Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.contactpage__hero-rule {
+  width: 64px;
+  height: 3px;
+  margin: 28px 0 24px;
+  background: linear-gradient(90deg, var(--red-bright), var(--red-dark));
+}
+
+.contactpage__lead {
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.7;
+  color: rgba(244, 242, 236, 0.65);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.contactpage__lead strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+/* ---------- Layout: form + info ---------- */
+
+.contactpage__body {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 56px);
+}
+
+/* ---------- Form ---------- */
+
+.contactpage__form {
+  background: transparent;
+  padding: 0;
+}
+
+.contactpage__row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 2px;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 560px) {
+  .contactpage__row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.contactpage__field {
+  position: relative;
+  flex: 1;
+}
+
+.contactpage__field input,
+.contactpage__field textarea {
+  width: 100%;
+  height: 100%;
+  background: #141414;
+  border: none;
+  border-radius: 0;
+  color: var(--paper);
+  font: inherit;
+  font-size: 16px;
+  padding: 30px 24px;
+  outline: none;
+  transition: background 0.25s ease;
+  resize: none;
+}
+
+.contactpage__field textarea {
+  min-height: 180px;
+  padding-top: 30px;
+}
+
+.contactpage__field input:focus,
+.contactpage__field textarea:focus {
+  background: #1c1c1c;
+}
+
+.contactpage__field label {
+  position: absolute;
+  left: 24px;
+  top: 30px;
+  color: var(--muted);
+  font-size: 16px;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.contactpage__field input:focus + label,
+.contactpage__field input:not(:placeholder-shown) + label,
+.contactpage__field textarea:focus + label,
+.contactpage__field textarea:not(:placeholder-shown) + label {
+  opacity: 0;
+}
+
+.contactpage__submit {
+  margin-top: 24px;
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 18px 40px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.contactpage__submit:hover {
+  filter: brightness(0.92);
+  transform: translateY(-1px);
+}
+
+.contactpage__note {
+  margin-top: 14px;
+  font-size: 12.5px;
+  color: var(--muted);
+}

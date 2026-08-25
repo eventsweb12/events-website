@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { href: '/#services', en: 'Services', ka: 'სერვისები' },
   { href: '/eventslisting', en: 'Our Work', ka: 'პროექტები' },
   { href: '/bloglisting', en: 'Blog', ka: 'ბლოგი' },
-  { href: '/#contact', en: 'Contact', ka: 'კონტაქტი' },
+  { href: '/contact', en: 'Contact', ka: 'კონტაქტი' },
 ]
 
 const logo = '/logos/logo.gif'
