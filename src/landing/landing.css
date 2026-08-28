@@ -88,10 +88,9 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, #ff2d3d, #6b0f14);
-  clip-path: polygon(83.4% 0, 84.6% 0, 96.6% 100%, 95.4% 100%);
+  clip-path: polygon(83.7% 0, 84.3% 0, 96.3% 100%, 95.7% 100%);
   opacity: 0.9;
 }
-
 /* ---------- Body ---------- */
 
 .hero__body {
