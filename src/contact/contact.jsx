@@ -95,13 +95,6 @@ function Contact() {
 
           <div className="contactpage__row">
             <div className="contactpage__field">
-              <input type="text" placeholder=" " required />
-              <label>{t.fields.budget}</label>
-            </div>
-          </div>
-
-          <div className="contactpage__row">
-            <div className="contactpage__field">
               <textarea placeholder=" " required />
               <label>{t.fields.details}</label>
             </div>
