@@ -7,9 +7,7 @@ import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/pagination'
 
-export default function EventspageHero({ slides, name, venue, year, meta }) {
-  const showEyebrow = meta && meta.length > 0
-
+export default function EventspageHero({ slides, name }) {
   return (
     <div className="eventpage__hero">
       <Swiper
@@ -38,11 +36,6 @@ export default function EventspageHero({ slides, name, venue, year, meta }) {
       <div className="eventpage__hero-scrim" aria-hidden="true" />
 
       <div className="eventpage__hero-content">
-        {showEyebrow && (
-          <span className="eventpage__hero-eyebrow">
-            {[venue, year].filter(Boolean).join(' · ')}
-          </span>
-        )}
         <h1 className="eventpage__hero-title">{name}</h1>
       </div>
 

@@ -11,8 +11,6 @@ const COPY = {
       'Every extraordinary event starts with an idea.',
       'An idea with the power to bring people together, create emotion and turn a moment into an unforgettable experience.',
       'From creative concept to flawless execution, every detail has one purpose — to create an event with its own character, energy and meaning.',
-    ],
-    closing: [
       'It’s not simply about creating events.',
       'It’s about creating atmosphere, emotion and stories that connect people.',
       'Because the best events are the ones people leave saying:',
@@ -30,8 +28,6 @@ const COPY = {
       'ყველა განსაკუთრებული ღონისძიება იდეით იწყება.',
       'იდეით, რომელსაც შეუძლია ადამიანების გაერთიანება, ემოციის შექმნა და მომენტის დაუვიწყარ გამოცდილებად ქცევა.',
       'კრეატიული კონცეფციიდან იდეალურ შესრულებამდე, თითოეული დეტალი ერთ მიზანს ემსახურება — შეიქმნას ღონისძიება, რომელსაც თავისი ხასიათი აქვს და რომელიც ადამიანებს დარჩებათ.',
-    ],
-    closing: [
       'აქ არ იქმნება უბრალოდ ღონისძიებები.',
       'იქმნება ატმოსფერო, ემოცია და ისტორიები, რომლებიც ადამიანებს ერთმანეთთან აკავშირებს.',
       'რადგან საუკეთესო ღონისძიება ის არის, რომლის დასრულების შემდეგაც ამბობენ:',
@@ -54,24 +50,17 @@ export default function About() {
       <span className="about__eyebrow">{t.eyebrow}</span>
 
       <div className="about__top">
-        <div className="about__lead">
-          <p className="about__lead-line about__lead-line--big">{t.lead[0]}</p>
-          <p className="about__lead-line">{t.lead[1]}</p>
-          <p className="about__lead-line">{t.lead[2]}</p>
-        </div>
+        <p className="about__lead-line about__lead-line--big">{t.lead[0]}</p>
+        <p className="about__lead-line">{t.lead[1]}</p>
+        <p className="about__lead-line">{t.lead[2]}</p>
+        <p className="about__lead-line">{t.lead[3]}</p>
+        <p className="about__lead-line">{t.lead[4]}</p>
+        <p className="about__lead-line about__lead-line--strong">{t.lead[5]}</p>
 
-        <div className="about__closing">
-          <div className="about__closing-text">
-            {t.closing.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
-
-          <blockquote className="about__stamp">
-            <span className="about__stamp-mark" aria-hidden="true">"</span>
-            <p>{t.quote}</p>
-          </blockquote>
-        </div>
+        <blockquote className="about__stamp">
+          <span className="about__stamp-mark" aria-hidden="true">"</span>
+          <p>{t.quote}</p>
+        </blockquote>
       </div>
 
       <ul className="about__pillars">

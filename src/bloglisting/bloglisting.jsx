@@ -126,9 +126,9 @@ export default function BlogListing() {
               return (
                 
                  <a key={post._id}
-                  className="bloglisting__card"
-                  href={`/blogpage/${post.slug || post._id}`}
-                >
+  className="bloglisting__card"
+  href={`/blog/${post.slug || post._id}`}
+>
                   <div className="bloglisting__image-wrap">
                     {image && (
                       <img

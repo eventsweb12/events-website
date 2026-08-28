@@ -100,7 +100,7 @@
   justify-content: flex-end;
   gap: 8px;
   min-width: 0;
-  height: 118px;
+  min-height: 118px;
   border-radius: 8px;
   overflow: hidden;
   isolation: isolate;
@@ -109,10 +109,9 @@
 
 @media (min-width: 720px) {
   .services__card {
-    height: clamp(120px, 17vh, 170px);
+    min-height: clamp(120px, 17vh, 170px);
   }
 }
-
 .services__card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
@@ -157,10 +156,6 @@
   font-size: 13px;
   line-height: 1.48;
   color: rgba(244, 242, 236, 0.58);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 /* ---------- Variants ---------- */
@@ -245,8 +240,8 @@
     font-size: clamp(28px, 8vw, 36px);
   }
 
-  .services__card {
-    height: 132px;
+   .services__card {
+    min-height: 132px;
     padding: 20px 18px;
   }
 
