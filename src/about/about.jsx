@@ -7,8 +7,8 @@ import { useLanguage } from '../language/LanguageContext'
 const COPY = {
   en: {
     eyebrow: 'About Us',
+    leadBigLines: ['Every extraordinary event', 'starts with an idea.'],
     lead: [
-      'Every extraordinary event starts with an idea.',
       'An idea with the power to bring people together, create emotion and turn a moment into an unforgettable experience.',
       'From creative concept to flawless execution, every detail has one purpose — to create an event with its own character, energy and meaning.',
       'It’s not simply about creating events.',
@@ -24,8 +24,8 @@ const COPY = {
   },
   ka: {
     eyebrow: 'ჩვენ შესახებ',
+    leadBigLines: ['ყველა განსაკუთრებული ღონისძიება', 'იდეით იწყება.'],
     lead: [
-      'ყველა განსაკუთრებული ღონისძიება იდეით იწყება.',
       'იდეით, რომელსაც შეუძლია ადამიანების გაერთიანება, ემოციის შექმნა და მომენტის დაუვიწყარ გამოცდილებად ქცევა.',
       'კრეატიული კონცეფციიდან იდეალურ შესრულებამდე, თითოეული დეტალი ერთ მიზანს ემსახურება — შეიქმნას ღონისძიება, რომელსაც თავისი ხასიათი აქვს და რომელიც ადამიანებს დარჩებათ.',
       'აქ არ იქმნება უბრალოდ ღონისძიებები.',
@@ -47,30 +47,41 @@ export default function About() {
 
   return (
     <section className="about" id="about" data-lang={lang}>
-      <span className="about__eyebrow">{t.eyebrow}</span>
+      <div className="about__inner">
+        <span className="about__eyebrow">{t.eyebrow}</span>
 
-      <div className="about__top">
-        <p className="about__lead-line about__lead-line--big">{t.lead[0]}</p>
-        <p className="about__lead-line">{t.lead[1]}</p>
-        <p className="about__lead-line">{t.lead[2]}</p>
-        <p className="about__lead-line">{t.lead[3]}</p>
-        <p className="about__lead-line">{t.lead[4]}</p>
-        <p className="about__lead-line about__lead-line--strong">{t.lead[5]}</p>
+        <div className="about__top">
+          <div className="about__top-left">
+            <p className="about__lead-line about__lead-line--big">
+              {t.leadBigLines[0]}
+              <br />
+              {t.leadBigLines[1]}
+            </p>
+          </div>
 
-        <blockquote className="about__stamp">
-          <span className="about__stamp-mark" aria-hidden="true">"</span>
-          <p>{t.quote}</p>
-        </blockquote>
+          <div className="about__top-right">
+            <p className="about__lead-line">
+              {t.lead.join(' ')}
+            </p>
+
+            <blockquote className="about__stamp">
+              <span className="about__stamp-mark" aria-hidden="true">"</span>
+              <p>{t.quote}</p>
+            </blockquote>
+          </div>
+        </div>
       </div>
 
-      <ul className="about__pillars">
-        {t.pillars.map((p) => (
-          <li className="about__pillar" key={p.word}>
-            <span className="about__pillar-word">{p.word}</span>
-            <span className="about__pillar-desc">{p.desc}</span>
-          </li>
-        ))}
-      </ul>
+      <div className="about__pillars-wrap">
+        <ul className="about__pillars">
+          {t.pillars.map((p) => (
+            <li className="about__pillar" key={p.word}>
+              <span className="about__pillar-word">{p.word}</span>
+              <span className="about__pillar-desc">{p.desc}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   )
 }

@@ -7,7 +7,6 @@ import Brands from '../brands/brands'
 const heroImages = ['/backgrounds/bg1.jpg', '/backgrounds/bg2.jpg']
 
 export default function Hero({
-  eyebrow = 'Full-service events studio',
   headline = 'Creative events & brand experiences',
 }) {
   const [activeImage, setActiveImage] = useState(0)
@@ -46,9 +45,7 @@ export default function Hero({
         </div>
 
         <div className="hero__body">
-          <span className="hero__eyebrow">{eyebrow}</span>
           <h1 className="hero__headline">{headline}</h1>
-          <span className="hero__scroll" aria-hidden="true" />
         </div>
       </section>
 

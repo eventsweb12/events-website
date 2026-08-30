@@ -20,8 +20,6 @@ export default function Home() {
       <About />
       <Services />
       <Events />
-      <Blog />
-      <Cta />
     </div>
   );
 }
