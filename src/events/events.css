@@ -142,7 +142,7 @@
   font-size: 15px;
 }
 
-/* ---------- Skeleton grid (loading state only) ---------- */
+/* ---------- Skeleton grid layout (loading state only) ---------- */
 
 .events__grid {
   display: grid;
@@ -265,34 +265,63 @@
   overflow: hidden;
 }
 
-/* ---------- Skeleton loading state ---------- */
+/* ---------- Skeleton ---------- */
+/* Each card breathes independently (randomized delay + duration per card)
+   instead of a single bright sweep syncing across the whole grid, so it
+   reads as "these cards are loading" rather than "the whole page flashed". */
 
 .events__card--skeleton {
   pointer-events: none;
 }
 
-.events__image--skeleton,
-.events__line--skeleton {
-  background: linear-gradient(
-    100deg,
-    rgba(255, 255, 255, 0.04) 30%,
-    rgba(255, 255, 255, 0.09) 50%,
-    rgba(255, 255, 255, 0.04) 70%
-  );
-  background-size: 200% 100%;
-  animation: events-shimmer 1.6s ease-in-out infinite;
+.events__image-wrap--skeleton {
+  background: #141416;
 }
 
-.events__line--skeleton {
-  margin-top: 16px;
-  height: 18px;
-  width: 60%;
-  border-radius: 2px;
+.events__skeleton-shimmer {
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 243, 236, 0.045);
+  opacity: 0.5;
+  animation: events-pulse var(--sk-duration, 1.8s) ease-in-out infinite;
+  animation-delay: var(--sk-delay, 0s);
 }
 
-@keyframes events-shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+.events__skel {
+  display: block;
+  border-radius: 3px;
+  background: rgba(245, 243, 236, 0.07);
+  opacity: 0.5;
+  animation: events-pulse var(--sk-duration, 1.8s) ease-in-out infinite;
+  animation-delay: var(--sk-delay, 0s);
+}
+
+.events__skel--meta {
+  width: 38%;
+  height: 10px;
+  margin-bottom: 4px;
+}
+
+.events__skel--name {
+  width: 72%;
+  height: 20px;
+  margin-bottom: 6px;
+}
+
+.events__skel--desc {
+  width: 100%;
+  height: 12px;
+}
+
+.events__skel--desc-short {
+  width: 55%;
+  height: 12px;
+  margin-top: 6px;
+}
+
+@keyframes events-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.85; }
 }
 
 /* ---------- Georgian: swap Anton → Varela Round, Inter → Google Sans ---------- */
@@ -355,7 +384,11 @@
 
 @media (prefers-reduced-motion: reduce) {
   .events__image,
-  .events__name::after {
+  .events__name::after,
+  .events__skeleton-shimmer,
+  .events__skel,
+  .events__card--skeleton {
     transition: none;
+    animation: none;
   }
 }

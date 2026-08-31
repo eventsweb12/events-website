@@ -35,6 +35,14 @@ function byLatest(a, b) {
   return String(b._id).localeCompare(String(a._id))
 }
 
+// Pseudo-random but stable per-index timing so skeleton cards breathe
+// independently instead of pulsing together as one bright wave.
+function skeletonTiming(i) {
+  const delay = ((i * 0.53) % 1.6).toFixed(2)
+  const duration = (1.6 + ((i * 0.29) % 1.1)).toFixed(2)
+  return { '--sk-delay': `${delay}s`, '--sk-duration': `${duration}s` }
+}
+
 export default function Events() {
   const { lang } = useLanguage()
   const t = LABELS[lang] || LABELS.en
@@ -74,7 +82,7 @@ export default function Events() {
   const showControls = status === 'ready' && events.length > 1
 
   return (
-    <section className="events"  data-lang={lang} id="work">
+    <section className="events" data-lang={lang} id="work">
       <div className="events__intro">
         <span className="events__eyebrow">{t.eyebrowLabel}</span>
 
@@ -123,12 +131,26 @@ export default function Events() {
 
       {status === 'loading' && (
         <div className="events__grid events__grid--skeleton" aria-hidden="true">
-          {[0, 1, 2].map((i) => (
-            <div className="events__card events__card--skeleton" key={i}>
-              <div className="events__image events__image--skeleton" />
-              <div className="events__line events__line--skeleton" />
-            </div>
-          ))}
+          {[0, 1, 2].map((i) => {
+            const timing = skeletonTiming(i)
+            return (
+              <div
+                className="events__card events__card--skeleton"
+                key={i}
+                style={timing}
+              >
+                <div className="events__image-wrap events__image-wrap--skeleton">
+                  <div className="events__skeleton-shimmer" />
+                </div>
+                <div className="events__body">
+                  <span className="events__skel events__skel--meta" style={skeletonTiming(i + 2)} />
+                  <span className="events__skel events__skel--name" style={skeletonTiming(i + 4)} />
+                  <span className="events__skel events__skel--desc" style={skeletonTiming(i + 6)} />
+                  <span className="events__skel events__skel--desc-short" style={skeletonTiming(i + 8)} />
+                </div>
+              </div>
+            )
+          })}
         </div>
       )}
 
@@ -164,7 +186,7 @@ export default function Events() {
 
             return (
               <SwiperSlide key={ev._id}>
-                
+
                  <a className="events__card"
                  href={`/events/${ev._id}`}
                 >

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useLanguage } from '../language/LanguageContext'
 
 const NAV_LINKS = [
-  { href: '/#home', en: 'Home', ka: 'მთავარი' },
+  { href: '/', en: 'Home', ka: 'მთავარი' },
   { href: '/#about', en: 'About Us', ka: 'ჩვენ შესახებ' },
   { href: '/#services', en: 'Services', ka: 'სერვისები' },
   { href: '/eventslisting', en: 'Our Work', ka: 'პროექტები' },
@@ -47,7 +47,7 @@ export default function Header({
   }
 
   const handleNavClick = (e, href) => {
-    if (href === '/#home' && window.location.pathname === '/') {
+    if (href === '/' && window.location.pathname === '/') {
       e.preventDefault()
       window.scrollTo({ top: 0, behavior: 'smooth' })
       setOpen(false)
