@@ -125,20 +125,21 @@
 .footer__social {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 26px;
   margin-top: 28px;
 }
 
 .footer__social-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   color: var(--muted);
   transition: color 0.2s ease;
 }
 
 .footer__social-link svg {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height:22px;
 }
 
 .footer__social-link:hover {

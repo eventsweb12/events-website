@@ -55,8 +55,6 @@ const SOCIAL_LINKS = [
 
 const COPY = {
   en: {
-    tagline:
-      "A full-service experiential and event marketing studio producing storytelling-driven design and large-scale product launches for the world's leading brands.",
     navColumns: [
       {
         title: 'Explore',
@@ -96,8 +94,6 @@ const COPY = {
     creditPrefix: 'Designed & developed by',
   },
   ka: {
-    tagline:
-      'სრული ციკლის ივენთ-მარკეტინგის სტუდია, რომელიც ქმნის სთორითელინგზე დაფუძნებულ დიზაინსა და მასშტაბურ ღონისძიებებს მოწამყვანე ბრენდებისთვის.',
     navColumns: [
       {
         title: 'გვერდები',
@@ -148,7 +144,6 @@ function Footer() {
       <div className="footer__grid">
         <div>
           <img className="footer__brand-logo" src={logo} alt="Motion Concept" />
-          <p className="footer__brand-tagline">{t.tagline}</p>
           <div className="footer__social">
             {SOCIAL_LINKS.map((social) => (
               <a
