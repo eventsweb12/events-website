@@ -41,7 +41,7 @@ const COPY = {
 // TODO: replace with real values
 const CONTACT_INFO = {
   email: 'info@yourstudio.com',
-  phone: '+995 000 00 00 00',
+  phone: '+995 551 11 13 11',
   phoneCode: '+995',
 }
 

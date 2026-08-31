@@ -86,9 +86,8 @@ const COPY = {
     ],
     studioTitle: 'Studio',
     studioLinks: [
-      { label: '123 Placeholder St, Tbilisi', href: '/#contact' },
-      { label: '+995 000 00 00 00', href: 'tel:+995000000000' },
-      { label: 'hello@youragency.com', href: 'mailto:hello@youragency.com' },
+      { label: '+995 551 11 13 11', href: 'tel:+995551111311' },
+      { label: 'info@motionconcept.ge', href: 'mailto:info@motionconcept.ge' },
       { label: 'Get in touch', href: '/contact' },
     ],
     rights: 'All rights reserved.',
@@ -103,7 +102,7 @@ const COPY = {
       {
         title: 'გვერდები',
         links: [
-          { label: 'მთავარი', href: '/#home' },
+          { label: 'მთავარი', href: '/home' },
           { label: 'ჩვენ შესახებ', href: '/#about' },
           { label: 'ჩვენი ნამუშევრები', href: '/eventslisting' },
           { label: 'ბლოგი', href: '/bloglisting' },
@@ -128,9 +127,8 @@ const COPY = {
     ],
     studioTitle: 'სტუდია',
     studioLinks: [
-      { label: '123 Placeholder St, Tbilisi', href: '/#contact' },
-      { label: '+995 000 00 00 00', href: 'tel:+995000000000' },
-      { label: 'hello@youragency.com', href: 'mailto:hello@youragency.com' },
+      { label: '+995 551 11 13 11', href: 'tel:+995551111311' },
+      { label: 'info@motionconcept.ge', href: 'mailto:info@motionconcept.ge' },
       { label: 'დაგვიკავშირდით', href: '/contact' },
     ],
     rights: 'ყველა უფლება დაცულია.',
