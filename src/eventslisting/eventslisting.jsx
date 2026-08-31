@@ -42,6 +42,14 @@ function byLatest(a, b) {
   return String(b._id).localeCompare(String(a._id))
 }
 
+// Pseudo-random but stable per-index timing so skeleton cards breathe
+// independently instead of pulsing together as one bright wave.
+function skeletonTiming(i) {
+  const delay = ((i * 0.53) % 1.6).toFixed(2)
+  const duration = (1.6 + ((i * 0.29) % 1.1)).toFixed(2)
+  return { '--sk-delay': `${delay}s`, '--sk-duration': `${duration}s` }
+}
+
 export default function EventsListing() {
   const { lang } = useLanguage()
   const t = LABELS[lang] || LABELS.en
@@ -95,12 +103,26 @@ export default function EventsListing() {
 
       {status === 'loading' && (
         <div className="eventslisting__grid" aria-hidden="true">
-          {Array.from({ length: 9 }).map((_, i) => (
-            <div className="eventslisting__card eventslisting__card--skeleton" key={i}>
-              <div className="eventslisting__image eventslisting__image--skeleton" />
-              <div className="eventslisting__line eventslisting__line--skeleton" />
-            </div>
-          ))}
+          {Array.from({ length: 9 }).map((_, i) => {
+            const timing = skeletonTiming(i)
+            return (
+              <div
+                className="eventslisting__card eventslisting__card--skeleton"
+                key={i}
+                style={timing}
+              >
+                <div className="eventslisting__image-wrap eventslisting__image-wrap--skeleton">
+                  <div className="eventslisting__skeleton-shimmer" />
+                </div>
+                <div className="eventslisting__body">
+                  <span className="eventslisting__skel eventslisting__skel--meta" style={skeletonTiming(i + 2)} />
+                  <span className="eventslisting__skel eventslisting__skel--name" style={skeletonTiming(i + 4)} />
+                  <span className="eventslisting__skel eventslisting__skel--desc" style={skeletonTiming(i + 6)} />
+                  <span className="eventslisting__skel eventslisting__skel--desc-short" style={skeletonTiming(i + 8)} />
+                </div>
+              </div>
+            )
+          })}
         </div>
       )}
 

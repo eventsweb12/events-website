@@ -45,6 +45,14 @@ function byLatest(a, b) {
   return String(b._id).localeCompare(String(a._id))
 }
 
+// Pseudo-random but stable per-index timing so skeleton cards breathe
+// independently instead of pulsing together as one bright wave.
+function skeletonTiming(i) {
+  const delay = ((i * 0.53) % 1.6).toFixed(2)
+  const duration = (1.6 + ((i * 0.29) % 1.1)).toFixed(2)
+  return { '--sk-delay': `${delay}s`, '--sk-duration': `${duration}s` }
+}
+
 export default function BlogListing() {
   const { lang } = useLanguage()
   const t = LABELS[lang] || LABELS.en
@@ -101,9 +109,19 @@ export default function BlogListing() {
       {status === 'loading' && (
         <div className="bloglisting__grid" aria-hidden="true">
           {Array.from({ length: PER_PAGE }).map((_, i) => (
-            <div className="bloglisting__card bloglisting__card--skeleton" key={i}>
-              <div className="bloglisting__image bloglisting__image--skeleton" />
-              <div className="bloglisting__line bloglisting__line--skeleton" />
+            <div
+              className="bloglisting__card bloglisting__card--skeleton"
+              key={i}
+              style={skeletonTiming(i)}
+            >
+              <div className="bloglisting__image-wrap bloglisting__image-wrap--skeleton">
+                <div className="bloglisting__skeleton-shimmer" />
+              </div>
+              <div className="bloglisting__body">
+                <span className="bloglisting__skel bloglisting__skel--name" style={skeletonTiming(i + 3)} />
+                <span className="bloglisting__skel bloglisting__skel--desc" style={skeletonTiming(i + 6)} />
+                <span className="bloglisting__skel bloglisting__skel--desc-short" style={skeletonTiming(i + 9)} />
+              </div>
             </div>
           ))}
         </div>

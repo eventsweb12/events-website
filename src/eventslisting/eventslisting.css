@@ -172,33 +172,62 @@
 }
 
 /* ---------- Skeleton ---------- */
+/* Each card breathes independently (randomized delay + duration per card)
+   instead of a single bright sweep syncing across the whole grid, so it
+   reads as "these cards are loading" rather than "the whole page flashed". */
 
 .eventslisting__card--skeleton {
   pointer-events: none;
 }
 
-.eventslisting__image--skeleton,
-.eventslisting__line--skeleton {
-  background: linear-gradient(
-    100deg,
-    rgba(255, 255, 255, 0.04) 30%,
-    rgba(255, 255, 255, 0.09) 50%,
-    rgba(255, 255, 255, 0.04) 70%
-  );
-  background-size: 200% 100%;
-  animation: eventslisting-shimmer 1.6s ease-in-out infinite;
+.eventslisting__image-wrap--skeleton {
+  background: #141416;
 }
 
-.eventslisting__line--skeleton {
-  margin-top: 16px;
-  height: 18px;
-  width: 60%;
-  border-radius: 2px;
+.eventslisting__skeleton-shimmer {
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 243, 236, 0.045);
+  opacity: 0.5;
+  animation: eventslisting-pulse var(--sk-duration, 1.8s) ease-in-out infinite;
+  animation-delay: var(--sk-delay, 0s);
 }
 
-@keyframes eventslisting-shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+.eventslisting__skel {
+  display: block;
+  border-radius: 3px;
+  background: rgba(245, 243, 236, 0.07);
+  opacity: 0.5;
+  animation: eventslisting-pulse var(--sk-duration, 1.8s) ease-in-out infinite;
+  animation-delay: var(--sk-delay, 0s);
+}
+
+.eventslisting__skel--meta {
+  width: 38%;
+  height: 10px;
+  margin-bottom: 4px;
+}
+
+.eventslisting__skel--name {
+  width: 72%;
+  height: 20px;
+  margin-bottom: 6px;
+}
+
+.eventslisting__skel--desc {
+  width: 100%;
+  height: 12px;
+}
+
+.eventslisting__skel--desc-short {
+  width: 55%;
+  height: 12px;
+  margin-top: 6px;
+}
+
+@keyframes eventslisting-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.85; }
 }
 
 /* ---------- Pagination ---------- */
@@ -337,7 +366,11 @@
 @media (prefers-reduced-motion: reduce) {
   .eventslisting__image,
   .eventslisting__name::after,
-  .eventslisting__page {
+  .eventslisting__page,
+  .eventslisting__skeleton-shimmer,
+  .eventslisting__skel,
+  .eventslisting__card--skeleton {
     transition: none;
+    animation: none;
   }
 }
