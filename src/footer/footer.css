@@ -50,7 +50,7 @@
 
 @media (min-width: 760px) {
   .footer__grid {
-    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    grid-template-columns: 1.2fr 0.9fr 1.7fr 0.9fr;
     gap: 24px;
   }
 }
@@ -99,6 +99,25 @@
 
 .footer__col-list a:hover {
   color: var(--red-bright);
+}
+
+/* ---------- Services: two-column split ---------- */
+
+.footer__col-list--split {
+  display: block;
+  columns: 2;
+  column-gap: 28px;
+}
+
+.footer__col-list--split li {
+  break-inside: avoid;
+  margin-bottom: 13px;
+}
+
+.footer__col-list--split a {
+  font-size: 13.5px;
+  line-height: 1.45;
+  display: inline-block;
 }
 
 /* ---------- Social row ---------- */

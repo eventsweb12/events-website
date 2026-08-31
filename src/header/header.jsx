@@ -46,6 +46,14 @@ export default function Header({
     }
   }
 
+  const handleNavClick = (e, href) => {
+    if (href === '/#home' && window.location.pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      setOpen(false)
+    }
+  }
+
   return (
     <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <nav className="header__nav">
@@ -56,7 +64,7 @@ export default function Header({
         <ul className="header__links">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <Link href={link.href}>
+              <Link href={link.href} onClick={(e) => handleNavClick(e, link.href)}>
                 <span>{link[lang]}</span>
               </Link>
             </li>
@@ -93,7 +101,13 @@ export default function Header({
         <ul>
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <Link href={link.href} onClick={() => setOpen(false)}>
+              <Link
+                href={link.href}
+                onClick={(e) => {
+                  handleNavClick(e, link.href)
+                  setOpen(false)
+                }}
+              >
                 <span>{link[lang]}</span>
               </Link>
             </li>
