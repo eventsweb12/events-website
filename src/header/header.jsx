@@ -14,7 +14,7 @@ const NAV_LINKS = [
   { href: '/contact', en: 'Contact', ka: 'კონტაქტი' },
 ]
 
-const logo = '/logos/logo.gif'
+const logo = '/logos/logo3.gif'
 
 const COPY = {
   en: { callUs: 'Call us' },

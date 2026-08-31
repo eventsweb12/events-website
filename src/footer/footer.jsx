@@ -3,7 +3,7 @@
 import React from 'react'
 import './footer.css'
 
-const logo = '/logos/logo.gif'
+const logo = '/logos/logo3.gif'
 
 const SOCIAL_LINKS = [
   {
