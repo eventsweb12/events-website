@@ -5,6 +5,8 @@ import Link from 'next/link'
 import './contact.css'
 import { useLanguage } from '../language/LanguageContext'
 
+const logo = '/logos/logo3.gif'
+
 const COPY = {
   en: {
     eyebrow: 'Get in touch',
@@ -109,7 +111,7 @@ function Contact() {
         <div className="contactpage__divider" aria-hidden="true" />
 
         <div className="contactpage__info">
-          <img src="/logo.svg" alt="Logo" className="contactpage__logo" />
+          <img src={logo} alt="Logo" className="contactpage__logo" />
 
           <div className="contactpage__info-block">
             <span className="contactpage__info-label">{t.infoTitle}</span>
