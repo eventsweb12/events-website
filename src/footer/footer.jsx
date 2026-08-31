@@ -63,9 +63,9 @@ const COPY = {
         links: [
           { label: 'Home', href: '/#home' },
           { label: 'About Us', href: '/#about' },
-          { label: 'Why Us', href: '/#why-us' },
           { label: 'Our Work', href: '/eventslisting' },
           { label: 'Blog', href: '/bloglisting' },
+          { label: 'contact', href: '/contact' },
         ],
       },
       {
@@ -89,7 +89,7 @@ const COPY = {
       { label: '123 Placeholder St, Tbilisi', href: '/#contact' },
       { label: '+995 000 00 00 00', href: 'tel:+995000000000' },
       { label: 'hello@youragency.com', href: 'mailto:hello@youragency.com' },
-      { label: 'Get in touch', href: '/#contact' },
+      { label: 'Get in touch', href: '/contact' },
     ],
     rights: 'All rights reserved.',
     privacy: 'Privacy Policy',
@@ -105,9 +105,9 @@ const COPY = {
         links: [
           { label: 'მთავარი', href: '/#home' },
           { label: 'ჩვენ შესახებ', href: '/#about' },
-          { label: 'რატომ ჩვენ', href: '/#why-us' },
           { label: 'ჩვენი ნამუშევრები', href: '/eventslisting' },
           { label: 'ბლოგი', href: '/bloglisting' },
+          { label: 'კონტაქტი', href: '/contact' },
         ],
       },
       {
@@ -131,7 +131,7 @@ const COPY = {
       { label: '123 Placeholder St, Tbilisi', href: '/#contact' },
       { label: '+995 000 00 00 00', href: 'tel:+995000000000' },
       { label: 'hello@youragency.com', href: 'mailto:hello@youragency.com' },
-      { label: 'დაგვიკავშირდით', href: '/#contact' },
+      { label: 'დაგვიკავშირდით', href: '/contact' },
     ],
     rights: 'ყველა უფლება დაცულია.',
     privacy: 'კონფიდენციალურობის პოლიტიკა',
