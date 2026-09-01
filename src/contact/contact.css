@@ -158,6 +158,26 @@
   border-color: var(--red-bright);
 }
 
+/* Field-level error state (native + Formspree ValidationError) */
+.contactpage__field input:invalid:not(:placeholder-shown) {
+  color: var(--paper);
+}
+
+.contactpage__field input:user-invalid,
+.contactpage__field input:invalid:not(:placeholder-shown):not(:focus) {
+  box-shadow: none;
+}
+
+.contactpage__field .contactpage__field-error,
+.contactpage__field [class*="ValidationError"],
+.contactpage__field ul {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+  color: var(--red-bright);
+  line-height: 1.4;
+}
 
 /* ---------- Checkbox ---------- */
 
@@ -253,6 +273,12 @@
 .contactpage__submit:hover {
   filter: brightness(0.92);
   transform: translateY(-1px);
+}
+
+.contactpage__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 @media (max-width: 480px) {
@@ -359,4 +385,94 @@
 .contactpage__social:hover {
   color: var(--red-bright);
   transform: translateY(-1px);
+}
+
+/* ---------- Success modal ---------- */
+
+.contactpage__modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 11, 12, 0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  animation: contactpage-fade-in 0.2s ease;
+}
+
+.contactpage__modal {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: clamp(32px, 5vw, 48px) clamp(28px, 5vw, 44px);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  animation: contactpage-pop-in 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.contactpage__modal-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  color: var(--red-bright);
+}
+
+.contactpage__modal-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contactpage__modal-title {
+  margin: 0 0 12px;
+  font-family: "Roboto", "Inter", sans-serif;
+  font-weight: 600;
+  font-size: clamp(19px, 2.2vw, 23px);
+  color: var(--paper);
+}
+
+.contactpage[data-lang='ka'] .contactpage__modal-title {
+  font-family: 'FiraGO', 'Roboto', sans-serif;
+}
+
+.contactpage__modal-body {
+  margin: 0 0 28px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(244, 242, 236, 0.7);
+}
+
+.contactpage__modal-close {
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 34px;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.contactpage__modal-close:hover {
+  filter: brightness(0.92);
+  transform: translateY(-1px);
+}
+
+@keyframes contactpage-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes contactpage-pop-in {
+  from { opacity: 0; transform: scale(0.94) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
