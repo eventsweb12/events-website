@@ -40,7 +40,6 @@
 }
 
 /* ---------- Individual item ---------- */
-
 .stats__item {
   display: flex;
   flex-flow: column;
@@ -50,6 +49,7 @@
   padding: 48px clamp(24px, 4vw, 90px);
   border-top: 1px solid var(--line);
   text-align: center;
+  width: 100%;
 }
 
 @media (min-width: 720px) {
@@ -70,11 +70,52 @@
 .stats__value {
   display: flex;
   align-items: baseline;
+  justify-content: center;
   gap: 3px;
+  width: 100%;
 }
 
 .stats__number {
   font-family: 'Varela Round', 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: 0.002em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+  text-align: right;
+}
+
+.stats__suffix {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: clamp(38px, 4.5vw, 54px);
+  line-height: 1;
+  color: #B31B1B;
+  transform: translateY(-0.05em);
+}
+
+.stats__label {
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+  color: var(--muted);
+  max-width: 180px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+/* ---------- Number ---------- */
+
+.stats__value {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.stats__number {
+  font-family:  'Roboto', sans-serif;
   font-weight: 400;
   font-size: clamp(40px, 5vw, 64px);
   line-height: 1;
