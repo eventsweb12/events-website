@@ -158,31 +158,6 @@
   border-color: var(--red-bright);
 }
 
-.contactpage__field--phone {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-}
-
-.contactpage__field--phone input {
-  flex: 1;
-}
-
-.contactpage__field--phone label {
-  left: 62px;
-}
-
-.contactpage__field--phone input:focus + label,
-.contactpage__field--phone input:not(:placeholder-shown) + label {
-  left: 0;
-}
-
-.contactpage__phone-code {
-  flex-shrink: 0;
-  font-size: 17px;
-  color: var(--muted);
-  padding-bottom: 1px;
-}
 
 /* ---------- Checkbox ---------- */
 

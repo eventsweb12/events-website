@@ -13,11 +13,11 @@ const COPY = {
     title: 'Contact us',
     lead: 'To provide you with the best possible offer, we’d like to learn more about your specific needs and requirements. Please don’t hesitate to get in touch with us.',
     fields: {
-      name: 'Name',
-      company: 'Company',
-      phone: 'Tel',
-      email: 'Email',
-    },
+  name: 'Name',
+  company: 'Company',
+  phone: 'Phone',
+  email: 'Email',
+},
     agree: 'I agree to be contacted regarding my inquiry.',
     submit: 'Send',
     note: "We'll be in touch within 48 hours.",
@@ -26,12 +26,12 @@ const COPY = {
     eyebrow: 'დაგვიკავშირდით',
     title: 'კონტაქტი',
     lead: 'საუკეთესო შეთავაზების მოსამზადებლად გვსურს, უკეთ გავიგოთ თქვენი საჭიროებები და მოთხოვნები. მოგვწერეთ დაუყოვნებლივ.',
-    fields: {
-      name: 'სახელი',
-      company: 'კომპანია',
-      phone: 'ტელეფონი',
-      email: 'ელ-ფოსტა',
-    },
+   fields: {
+  name: 'სახელი',
+  company: 'კომპანია',
+  phone: 'ტელეფონი',
+  email: 'ელ-ფოსტა',
+},
     agree: 'ვეთანხმები, რომ დამიკავშირდნენ ჩემი მოთხოვნის შესახებ.',
     submit: 'გაგზავნა',
     note: 'დაგიკავშირდებით 48 საათის განმავლობაში.',
@@ -40,7 +40,7 @@ const COPY = {
 
 // TODO: replace with real values
 const CONTACT_INFO = {
-  email: 'info@yourstudio.com',
+  email: 'hello@motionconcept.ge',
   phone: '+995 551 11 13 11',
   phoneCode: '+995',
 }
@@ -113,11 +113,12 @@ function Contact() {
             <label>{t.fields.email}</label>
           </div>
 
-          <div className="contactpage__field contactpage__field--phone">
-            <span className="contactpage__phone-code">{CONTACT_INFO.phoneCode}</span>
-            <input type="tel" placeholder=" " required />
-            <label>{t.fields.phone}</label>
-          </div>
+
+<div className="contactpage__field">
+  <input type="tel" placeholder=" " required />
+  <label>{t.fields.phone}</label>
+</div>
+
 
           <div className="contactpage__field">
             <input type="text" placeholder=" " required />
