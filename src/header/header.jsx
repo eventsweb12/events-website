@@ -6,7 +6,21 @@ import './header.css'
 import Link from 'next/link'
 import { useLanguage } from '../language/LanguageContext'
 
-// ... NAV_LINKS, logo, COPY unchanged ...
+const NAV_LINKS = [
+  { href: '/', en: 'Home', ka: 'მთავარი' },
+  { href: '/#about', en: 'About Us', ka: 'ჩვენ შესახებ' },
+  { href: '/#services', en: 'Services', ka: 'სერვისები' },
+  { href: '/eventslisting', en: 'Our Work', ka: 'პროექტები' },
+  { href: '/bloglisting', en: 'Blog', ka: 'ბლოგი' },
+  { href: '/contact', en: 'Contact', ka: 'კონტაქტი' },
+]
+
+const logo = '/logos/logo3.gif'
+
+const COPY = {
+  en: { callUs: 'Call us' },
+  ka: { callUs: 'დაგვირეკეთ' },
+}
 
 export default function Header({
   logoText = 'YOUR AGENCY',
@@ -14,7 +28,7 @@ export default function Header({
 }) {
   const [open, setOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
-  const [mounted, setMounted] = React.useState(false) // NEW
+  const [mounted, setMounted] = React.useState(false)
   const { lang, toggleLang } = useLanguage()
   const t = COPY[lang]
 
@@ -22,18 +36,51 @@ export default function Header({
     setMounted(true) // portal target only exists client-side
   }, [])
 
-  // ... onScroll effect unchanged ...
-  // ... body scroll lock effect unchanged ...
-  // ... handleLogoClick, handleNavClick unchanged ...
+  React.useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 12)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Lock body scroll while the sidebar is open
+  React.useEffect(() => {
+    if (open) {
+      const prev = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = prev
+      }
+    }
+  }, [open])
+
+  const handleLogoClick = (e) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  const handleNavClick = (e, href) => {
+    if (href === '/' && window.location.pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      setOpen(false)
+    }
+  }
 
   const mobileMenu = (
     <>
+      {/* Overlay */}
       <div
         className={`header__overlay${open ? ' header__overlay--open' : ''}`}
         onClick={() => setOpen(false)}
         aria-hidden="true"
       />
 
+      {/* Sliding sidebar */}
       <div
         className={`header__mobile${open ? ' header__mobile--open' : ''}`}
         role="dialog"
