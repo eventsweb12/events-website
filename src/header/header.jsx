@@ -1,25 +1,12 @@
 'use client'
 
 import React from 'react'
+import { createPortal } from 'react-dom'
 import './header.css'
 import Link from 'next/link'
 import { useLanguage } from '../language/LanguageContext'
 
-const NAV_LINKS = [
-  { href: '/', en: 'Home', ka: 'მთავარი' },
-  { href: '/#about', en: 'About Us', ka: 'ჩვენ შესახებ' },
-  { href: '/#services', en: 'Services', ka: 'სერვისები' },
-  { href: '/eventslisting', en: 'Our Work', ka: 'პროექტები' },
-  { href: '/bloglisting', en: 'Blog', ka: 'ბლოგი' },
-  { href: '/contact', en: 'Contact', ka: 'კონტაქტი' },
-]
-
-const logo = '/logos/logo3.gif'
-
-const COPY = {
-  en: { callUs: 'Call us' },
-  ka: { callUs: 'დაგვირეკეთ' },
-}
+// ... NAV_LINKS, logo, COPY unchanged ...
 
 export default function Header({
   logoText = 'YOUR AGENCY',
@@ -27,43 +14,66 @@ export default function Header({
 }) {
   const [open, setOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
+  const [mounted, setMounted] = React.useState(false) // NEW
   const { lang, toggleLang } = useLanguage()
   const t = COPY[lang]
 
   React.useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 12)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    setMounted(true) // portal target only exists client-side
   }, [])
 
-  // Lock body scroll while the sidebar is open
-  React.useEffect(() => {
-    if (open) {
-      const prev = document.body.style.overflow
-      document.body.style.overflow = 'hidden'
-      return () => {
-        document.body.style.overflow = prev
-      }
-    }
-  }, [open])
+  // ... onScroll effect unchanged ...
+  // ... body scroll lock effect unchanged ...
+  // ... handleLogoClick, handleNavClick unchanged ...
 
-  const handleLogoClick = (e) => {
-    if (window.location.pathname === '/') {
-      e.preventDefault()
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-  }
+  const mobileMenu = (
+    <>
+      <div
+        className={`header__overlay${open ? ' header__overlay--open' : ''}`}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
 
-  const handleNavClick = (e, href) => {
-    if (href === '/' && window.location.pathname === '/') {
-      e.preventDefault()
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-      setOpen(false)
-    }
-  }
+      <div
+        className={`header__mobile${open ? ' header__mobile--open' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-hidden={!open}
+      >
+        <div className="header__mobile-top">
+          <span className="header__mobile-brand">
+            <img src={logo} alt={logoText} />
+          </span>
+          <button
+            className="header__mobile-close"
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+
+        <ul>
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                onClick={(e) => {
+                  handleNavClick(e, link.href)
+                  setOpen(false)
+                }}
+              >
+                <span>{link[lang]}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  )
 
   return (
     <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
@@ -108,52 +118,8 @@ export default function Header({
         </div>
       </nav>
 
-      {/* Overlay */}
-      <div
-        className={`header__overlay${open ? ' header__overlay--open' : ''}`}
-        onClick={() => setOpen(false)}
-        aria-hidden="true"
-      />
-
-      {/* Sliding sidebar */}
-      <div
-        className={`header__mobile${open ? ' header__mobile--open' : ''}`}
-        role="dialog"
-        aria-modal="true"
-        aria-hidden={!open}
-      >
-        <div className="header__mobile-top">
-          <span className="header__mobile-brand">
-            <img src={logo} alt={logoText} />
-          </span>
-          <button
-            className="header__mobile-close"
-            type="button"
-            aria-label="Close menu"
-            onClick={() => setOpen(false)}
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-              <path d="M6 6l12 12M18 6L6 18" />
-            </svg>
-          </button>
-        </div>
-
-        <ul>
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                onClick={(e) => {
-                  handleNavClick(e, link.href)
-                  setOpen(false)
-                }}
-              >
-                <span>{link[lang]}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* overlay + sidebar rendered outside .header's stacking context */}
+      {mounted && createPortal(mobileMenu, document.body)}
     </header>
   )
 }

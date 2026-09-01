@@ -379,3 +379,11 @@
     display: none;
   }
 }
+
+.header__overlay {
+  z-index: 9998;
+}
+
+.header__mobile {
+  z-index: 9999;
+}
