@@ -39,6 +39,17 @@ export default function Header({
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Lock body scroll while the sidebar is open
+  React.useEffect(() => {
+    if (open) {
+      const prev = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = prev
+      }
+    }
+  }, [open])
+
   const handleLogoClick = (e) => {
     if (window.location.pathname === '/') {
       e.preventDefault()
@@ -97,7 +108,36 @@ export default function Header({
         </div>
       </nav>
 
-      <div className={`header__mobile${open ? ' header__mobile--open' : ''}`}>
+      {/* Overlay */}
+      <div
+        className={`header__overlay${open ? ' header__overlay--open' : ''}`}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Sliding sidebar */}
+      <div
+        className={`header__mobile${open ? ' header__mobile--open' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-hidden={!open}
+      >
+        <div className="header__mobile-top">
+          <span className="header__mobile-brand">
+            <img src={logo} alt={logoText} />
+          </span>
+          <button
+            className="header__mobile-close"
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+
         <ul>
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
