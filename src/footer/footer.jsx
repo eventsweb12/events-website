@@ -89,7 +89,7 @@ const COPY = {
     studioTitle: 'Studio',
     studioLinks: [
       { label: '+995 551 11 13 11', href: 'tel:+995551111311' },
-      { label: 'info@motionconcept.ge', href: 'mailto:info@motionconcept.ge' },
+      { label: 'hello@motionconcept.ge', href: 'mailto:hello@motionconcept.ge' },
       { label: 'Get in touch', href: '/contact' },
     ],
     rights: 'All rights reserved.',
