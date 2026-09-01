@@ -171,10 +171,10 @@
 .contactpage__field .contactpage__field-error,
 .contactpage__field [class*="ValidationError"],
 .contactpage__field ul {
-  margin: 8px 0 0;
+  margin: 8px 0 0 !important;
   padding: 0;
   list-style: none;
-  font-size: 12.5px;
+  font-size: 12px;
   color: var(--red-bright);
   line-height: 1.4;
 }
@@ -235,6 +235,18 @@
   font-size: 13.5px;
   line-height: 1.5;
   color: var(--muted);
+}
+
+/* Checkbox error — separate from .contactpage__field-error since the
+   checkbox error <p> is NOT nested inside .contactpage__field, so the
+   descendant selector above never matched it and margin-top was ignored. */
+.contactpage__checkbox-error {
+  margin: 10px 0 0 !important;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+  color: var(--red-bright);
+  line-height: 1.4;
 }
 
 /* ---------- Form footer: note + submit ---------- */

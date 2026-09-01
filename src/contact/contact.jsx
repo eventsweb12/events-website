@@ -264,7 +264,7 @@ function Contact() {
             <span className="contactpage__checkbox-box" aria-hidden="true" />
             <span className="contactpage__checkbox-text">{t.agree}</span>
           </label>
-          {errors.agree && <p className="contactpage__field-error">{errors.agree}</p>}
+          {errors.agree && <p className="contactpage__checkbox-error">{errors.agree}</p>}
 
           <div className="contactpage__form-footer">
             <p className="contactpage__note">{t.note}</p>
@@ -292,8 +292,8 @@ function Contact() {
 
           <div className="contactpage__socials">
             {SOCIAL_LINKS.map((s) => (
-              <a
-                key={s.name}
+              
+               <a key={s.name}
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
