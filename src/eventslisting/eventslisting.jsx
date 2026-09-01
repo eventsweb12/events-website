@@ -138,7 +138,7 @@ export default function EventsListing() {
             {pageEvents.map((ev) => {
               const name = pick(ev.eventName, lang) || pick(ev.title, lang)
               const desc = pick(ev.about, lang)
-              const meta = [pick(ev.venue, lang), ev.year].filter(Boolean).join(' · ')
+           
 
               return (
                 
@@ -159,7 +159,7 @@ export default function EventsListing() {
                   </div>
 
                   <div className="eventslisting__body">
-                    {meta && <span className="eventslisting__meta">{meta}</span>}
+                  
                     <h3 className="eventslisting__name">{name}</h3>
                     {desc && <p className="eventslisting__desc">{desc}</p>}
                   </div>
