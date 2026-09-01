@@ -21,7 +21,7 @@
   position: relative;
   background: var(--paper);
   color: var(--ink);
-  font-family: "Roboto", sans-serif;
+  font-family: "inter", sans-serif;
   width: 100%;
 
   display: flex;
@@ -102,7 +102,7 @@
 }
 
 .about__lead-line--big {
-  font-family: 'Varela Round', 'Roboto', sans-serif;
+  font-family: 'roboto', sans-serif;
   font-weight: 400;
   font-size: clamp(32px, 4vw, 54px);
   line-height: 1.2;
@@ -123,7 +123,7 @@
   top: clamp(-52px, -6vw, -32px);
   left: clamp(-12px, -2vw, -4px);
   z-index: 0;
-  font-family: 'Varela Round', 'Roboto', sans-serif;
+  font-family: 'roboto', sans-serif;
   font-size: clamp(120px, 16vw, 200px);
   line-height: 1;
   color: transparent;
@@ -136,7 +136,7 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'roboto', sans-serif;
   font-weight: 400;
   font-size: 17px;
   line-height: 1.75;
@@ -232,7 +232,7 @@
 }
 
 .about__pillar-word {
-  font-family: 'Varela Round', 'Roboto', sans-serif;
+  font-family:  'Roboto', sans-serif;
   font-weight: 400;
   font-size: clamp(24px, 2.6vw, 32px);
   line-height: 1;
