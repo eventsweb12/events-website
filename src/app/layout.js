@@ -4,7 +4,7 @@ import Footer from "../footer/footer";
 import { LanguageProvider } from "../language/LanguageContext";
 
 export const metadata = {
-  metadataBase: new URL('https://motionconcept.ge'), // შეცვალე რეალურით
+  metadataBase: new URL('https://motionconcept.ge'),
   title: {
     default: "Motion Concept | Creative Events & Brand Experiences",
     template: "%s | Motion Concept",
@@ -48,7 +48,7 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     alternateLocale: "ka_GE",
-    url: "https://yourdomain.com",
+    url: "https://motionconcept.ge",
     siteName: "Motion Concept",
     title: "Motion Concept | Creative Events & Brand Experiences",
     description:

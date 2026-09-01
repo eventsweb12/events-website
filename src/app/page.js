@@ -5,10 +5,7 @@ import Stats from '../stats/stats'
 import About from '../about/about'
 import Services from '../services/services'
 import Events from '../events/events'
-import Brands from '../brands/brands'
-import WhyUs from '../whyus/whyus'
-import Blog from '../blog/blog'
-import Cta from '../cta/cta'
+
 
 
 
