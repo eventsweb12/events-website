@@ -20,14 +20,14 @@
   position: relative;
   background: var(--ink);
   color: var(--paper);
-  font-family: "Google Sans", "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   min-height: 100vh;
   padding-bottom: clamp(80px, 10vw, 140px);
   overflow: hidden;
 }
 
 .contactpage[data-lang='ka'] {
-  font-family: 'FiraGO', 'Google Sans', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /* ---------- Hero ---------- */
@@ -54,7 +54,7 @@
 
 .contactpage__title {
   margin: 0;
-  font-family: "Google Sans", "Inter", sans-serif;
+  font-family: "Roboto", "Inter", sans-serif;
   font-weight: 400;
   font-size: clamp(24px, 2.8vw, 34px);
   line-height: 1.1;
@@ -63,7 +63,7 @@
 }
 
 .contactpage[data-lang='ka'] .contactpage__title {
-  font-family: 'FiraGO', 'Google Sans', sans-serif;
+  font-family: 'FiraGO', 'Roboto', sans-serif;
   font-weight: 600;
   letter-spacing: 0;
 }

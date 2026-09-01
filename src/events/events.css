@@ -19,7 +19,7 @@
   position: relative;
   background: var(--ink);
   color: var(--paper);
-  font-family: "Google Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   padding: clamp(32px, 4vw, 40px) clamp(20px, 4vw, 56px) clamp(72px, 9vw, 70px);
   width: 100%;
 }
@@ -62,7 +62,7 @@
 
 .events__heading {
   margin: 0;
-  font-family: "Google Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: clamp(34px, 5.5vw, 62px);
   line-height: 0.98;
@@ -227,7 +227,7 @@
 
 .events__name {
   margin: 0;
-  font-family: "Google Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: clamp(17px, 1.6vw, 22px);
   line-height: 1.2;
@@ -338,7 +338,7 @@
 .events[data-lang='ka'] .events__eyebrow,
 .events[data-lang='ka'] .events__meta,
 .events[data-lang='ka'] .events__count {
-  font-family: 'Google Sans', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /* ---------- Responsive ---------- */

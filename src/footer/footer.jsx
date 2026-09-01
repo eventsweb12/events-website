@@ -11,10 +11,10 @@ const SOCIAL_LINKS = [
     name: 'Instagram',
     href: 'https://instagram.com/youragency',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="5" />
-        <circle cx="12" cy="12" r="4" />
-        <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <rect x="2.5" y="2.5" width="19" height="19" rx="6" />
+        <circle cx="12" cy="12" r="4.3" />
+        <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
       </svg>
     ),
   },
@@ -22,9 +22,9 @@ const SOCIAL_LINKS = [
     name: 'Facebook',
     href: 'https://facebook.com/youragency',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M15 8h-2a2 2 0 0 0-2 2v10M9 13h4" />
-        <circle cx="12" cy="12" r="9" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <circle cx="12" cy="12" r="9.5" />
+        <path d="M14.5 8.2h-1.7a2 2 0 0 0-2 2V20M9.4 13.1h4.6" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -32,12 +32,12 @@ const SOCIAL_LINKS = [
     name: 'LinkedIn',
     href: 'https://linkedin.com/company/youragency',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="3" />
-        <line x1="7.5" y1="10.5" x2="7.5" y2="16.5" />
-        <circle cx="7.5" cy="7.2" r="0.8" fill="currentColor" stroke="none" />
-        <path d="M11.5 16.5v-4a2 2 0 0 1 4 0v4" />
-        <line x1="11.5" y1="10.5" x2="11.5" y2="16.5" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+        <line x1="7.6" y1="10.3" x2="7.6" y2="16.8" strokeLinecap="round" />
+        <circle cx="7.6" cy="7.3" r="1" fill="currentColor" stroke="none" />
+        <path d="M11.6 16.8v-4.2a2.3 2.3 0 0 1 4.6 0v4.2" strokeLinecap="round" strokeLinejoin="round" />
+        <line x1="11.6" y1="10.3" x2="11.6" y2="16.8" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -45,9 +45,9 @@ const SOCIAL_LINKS = [
     name: 'TikTok',
     href: 'https://tiktok.com/@youragency',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5" />
-        <path d="M14 4c.4 2.2 2 3.8 4.2 4.1" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path d="M14.2 3.5v11.3a3.6 3.6 0 1 1-3.6-3.6" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M14.2 3.5c.4 2.5 2.3 4.4 4.8 4.7" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -68,13 +68,17 @@ const COPY = {
       },
       {
         title: 'Services',
-        split: true,
         links: [
           { label: 'Opening Events', href: '/#services' },
           { label: 'Brand Launches', href: '/#services' },
           { label: 'Promotional Events', href: '/#services' },
           { label: 'Press Events & Lunches', href: '/#services' },
           { label: 'Kids & Family Activities', href: '/#services' },
+        ],
+      },
+      {
+        title: 'Services',
+        links: [
           { label: 'Brand Experiences', href: '/#services' },
           { label: 'Corporate Events', href: '/#services' },
           { label: 'Event Design & Creative Direction', href: '/#services' },
@@ -107,13 +111,17 @@ const COPY = {
       },
       {
         title: 'სერვისები',
-        split: true,
         links: [
           { label: 'გახსნის ღონისძიებები', href: '/#services' },
           { label: 'ბრენდის წარდგენა', href: '/#services' },
           { label: 'საპრომოციო ღონისძიებები', href: '/#services' },
           { label: 'პრეს ღონისძიებები და ბრენდის წარდგენა', href: '/#services' },
           { label: 'საბავშვო აქტივობები', href: '/#services' },
+        ],
+      },
+      {
+        title: 'სერვისები',
+        links: [
           { label: 'ბრენდული გამოცდილებები', href: '/#services' },
           { label: 'კორპორაციული ღონისძიებები', href: '/#services' },
           { label: 'კრეატიული დიზაინი და არტ-დირექშენი', href: '/#services' },
@@ -146,8 +154,8 @@ function Footer() {
           <img className="footer__brand-logo" src={logo} alt="Motion Concept" />
           <div className="footer__social">
             {SOCIAL_LINKS.map((social) => (
-              <a
-                key={social.name}
+              
+               <a key={social.name}
                 className="footer__social-link"
                 href={social.href}
                 target="_blank"
@@ -160,10 +168,10 @@ function Footer() {
           </div>
         </div>
 
-        {t.navColumns.map((col) => (
-          <div key={col.title}>
+        {t.navColumns.map((col, i) => (
+          <div key={`${col.title}-${i}`}>
             <p className="footer__col-title">{col.title}</p>
-            <ul className={`footer__col-list${col.split ? ' footer__col-list--split' : ''}`}>
+            <ul className="footer__col-list">
               {col.links.map((link) => (
                 <li key={link.label}>
                   <a href={link.href}>{link.label}</a>

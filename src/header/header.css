@@ -17,7 +17,7 @@
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
-  font-family: 'Google Sans', 'Inter', system-ui, sans-serif;
+  font-family: "Roboto", sans-serif;
   background: rgba(11, 11, 12, 0.64);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);

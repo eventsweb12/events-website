@@ -22,7 +22,7 @@
 
   background: var(--paper);
   color: var(--ink);
-  font-family: 'Google Sans', 'Inter', system-ui, sans-serif;
+  font-family: 'Roboto', 'Inter', system-ui, sans-serif;
 }
 
 /* ---------- Wrapper: row of items ---------- */
@@ -74,7 +74,7 @@
 }
 
 .stats__number {
-  font-family: 'Varela Round', 'Google Sans', sans-serif;
+  font-family: 'Varela Round', 'Roboto', sans-serif;
   font-weight: 400;
   font-size: clamp(40px, 5vw, 64px);
   line-height: 1;
@@ -85,7 +85,7 @@
 }
 
 .stats__suffix {
-  font-family: 'Google Sans', 'Inter', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: clamp(38px, 4.5vw, 54px);
   line-height: 1;

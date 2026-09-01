@@ -148,7 +148,7 @@
 
 .eventpage__hero-title {
   margin: 0;
-  font-family: "Google Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: clamp(36px, 6.5vw, 84px);
   line-height: 0.98;

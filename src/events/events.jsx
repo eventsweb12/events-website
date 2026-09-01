@@ -182,7 +182,7 @@ export default function Events() {
           {events.map((ev) => {
             const name = pick(ev.eventName, lang) || pick(ev.title, lang)
             const desc = pick(ev.about, lang)
-            const meta = [pick(ev.venue, lang), ev.year].filter(Boolean).join(' · ')
+           
 
             return (
               <SwiperSlide key={ev._id}>
@@ -203,7 +203,7 @@ export default function Events() {
                   </div>
 
                   <div className="events__body">
-                    {meta && <span className="events__meta">{meta}</span>}
+                   
                     <h3 className="events__name">{name}</h3>
                     {desc && <p className="events__desc">{desc}</p>}
                   </div>
