@@ -339,3 +339,40 @@
     font-size: 15px;
   }
 }
+
+/* ---------- Source ---------- */
+
+.blogpage__source {
+  margin-top: clamp(32px, 5vw, 56px);
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.blogpage__source-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.blogpage__source-link {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--red-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.25s ease;
+}
+
+.blogpage__source-link:hover {
+  color: var(--paper);
+}
+
+.blogpage[data-lang='ka'] .blogpage__source-label {
+  font-family: "Roboto", sans-serif;
+}

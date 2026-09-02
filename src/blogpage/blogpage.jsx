@@ -9,8 +9,8 @@ import BlogpageHero from './blogpagehero'
 const API_URL = 'https://events-admin-omega.vercel.app/api/blog'
 
 const LABELS = {
-  en: { back: 'Back', error: 'Could not load this post.', notFound: 'Post not found.', loading: 'Loading…' },
-  ka: { back: 'უკან', error: 'პოსტის ჩატვირთვა ვერ მოხერხდა.', notFound: 'პოსტი ვერ მოიძებნა.', loading: 'იტვირთება…' },
+  en: { back: 'Back', error: 'Could not load this post.', notFound: 'Post not found.', loading: 'Loading…', source: 'Source' },
+  ka: { back: 'უკან', error: 'პოსტის ჩატვირთვა ვერ მოხერხდა.', notFound: 'პოსტი ვერ მოიძებნა.', loading: 'იტვირთება…', source: 'წყარო' },
 }
 
 function pick(field, lang) {
@@ -36,7 +36,7 @@ export default function BlogPage() {
   const t = LABELS[lang] || LABELS.en
 
   const [post, setPost] = useState(null)
-  const [status, setStatus] = useState('loading') // 'loading' | 'ready' | 'error' | 'notfound'
+  const [status, setStatus] = useState('loading')
 
   useEffect(() => {
     let cancelled = false
@@ -73,10 +73,6 @@ export default function BlogPage() {
     return Array.from(new Set(urls))
   }, [post])
 
-  // Same pattern as Eventspage: prefer real browser history (works whether
-  // the user came from "/" via the blog section or from "/blog" directly),
-  // and only fall back to a fixed route when there's no history to return to
-  // (e.g. a shared link opened straight into this page).
   function goBack() {
     if (typeof window !== 'undefined' && window.history.length > 1) {
       router.back()
@@ -113,6 +109,8 @@ export default function BlogPage() {
   const title = pick(post.title, lang)
   const content = pick(post.content, lang)
   const date = formatDate(post, lang)
+  const sourceName = post.source?.name
+  const sourceUrl = post.source?.url
 
   return (
     <section className="blogpage" data-lang={lang}>
@@ -128,6 +126,20 @@ export default function BlogPage() {
       <div className="blogpage__content-wrap">
         <article className="blogpage__article">
           <div className="blogpage__content" dangerouslySetInnerHTML={{ __html: content }} />
+
+          {sourceName && sourceUrl && (
+            <div className="blogpage__source">
+              <span className="blogpage__source-label">{t.source}</span>
+              
+               <a href={sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="blogpage__source-link"
+              >
+                {sourceName}
+              </a>
+            </div>
+          )}
         </article>
       </div>
     </section>
