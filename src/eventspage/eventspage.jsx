@@ -6,6 +6,7 @@ import './eventspage.css'
 import { useLanguage } from '../language/LanguageContext'
 import EventspageHero from './eventspagehero'
 import Gallery from './gallery'
+import EventsVideo from './eventsvideo'
 
 const API_URL = 'https://events-admin-omega.vercel.app/api/events'
 const FIELD_KEY = { ka: 'geo', en: 'eng' }
@@ -27,6 +28,7 @@ const LABELS = {
     about: 'About the project',
     role: 'Our role',
     gallery: 'Gallery',
+    video: 'Video',
     loading: 'Loading…',
     notFound: 'Event not found.',
     error: 'Could not load this event.',
@@ -41,6 +43,7 @@ const LABELS = {
     about: 'პროექტის შესახებ',
     role: 'ჩვენი როლი',
     gallery: 'გალერეა',
+    video: 'ვიდეო',
     loading: 'იტვირთება…',
     notFound: 'ივენთი ვერ მოიძებნა.',
     error: 'ივენთის ჩატვირთვა ვერ მოხერხდა.',
@@ -209,6 +212,8 @@ export default function Eventspage() {
         )}
 
         <Gallery slides={gallerySlides} name={name} label={t.gallery} />
+
+        <EventsVideo url={event.youtubeUrl} label={t.video} />
       </div>
     </section>
   )
