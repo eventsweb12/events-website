@@ -92,10 +92,21 @@ export default function Eventspage() {
     return () => { cancelled = true }
   }, [slug])
 
-  const slides = useMemo(() => {
+  // Full gallery grid — every photo (mainImage + gallery), unchanged behavior
+  const gallerySlides = useMemo(() => {
     if (!event) return []
     const all = [event.mainImage, ...(event.gallery || [])].filter(Boolean)
     return Array.from(new Set(all))
+  }, [event])
+
+  // Hero carousel — ONLY the photos marked as carouselImages in the admin.
+  // Falls back to mainImage if nothing was marked, so the hero is never empty.
+  const heroSlides = useMemo(() => {
+    if (!event) return []
+    const marked = (event.carouselImages || []).filter(Boolean)
+    return marked.length > 0
+      ? Array.from(new Set(marked))
+      : [event.mainImage].filter(Boolean)
   }, [event])
 
   // Go back to wherever the user came from (/#work or /eventslisting?page=N).
@@ -161,7 +172,7 @@ export default function Eventspage() {
         {t.back}
       </button>
 
-      <EventspageHero slides={slides} name={name} venue={venue} year={event.year} meta={meta} />
+      <EventspageHero slides={heroSlides} name={name} venue={venue} year={event.year} meta={meta} />
 
       <div className="eventpage__content">
         {(about || role) && (
@@ -197,7 +208,7 @@ export default function Eventspage() {
           </div>
         )}
 
-        <Gallery slides={slides} name={name} label={t.gallery} />
+        <Gallery slides={gallerySlides} name={name} label={t.gallery} />
       </div>
     </section>
   )
