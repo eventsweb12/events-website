@@ -77,7 +77,7 @@ export default function BlogPage() {
     if (typeof window !== 'undefined' && window.history.length > 1) {
       router.back()
     } else {
-      router.push('/blog')
+      router.push('/bloglisting')
     }
   }
 
