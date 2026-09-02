@@ -127,7 +127,7 @@
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-size: clamp(16px, 1.4vw, 20px);
+  font-size: clamp(14px, 1.1vw, 16px);
   line-height: 1.2;
   color: var(--paper);
   position: relative;
