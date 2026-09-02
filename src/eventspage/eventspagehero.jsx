@@ -7,31 +7,37 @@ import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/pagination'
 
-export default function EventspageHero({ slides, name }) {
+export default function EventspageHero({ slides = [], name }) {
+  const hasSlides = slides.length > 0
+
   return (
     <div className="eventpage__hero">
-      <Swiper
-        modules={[Navigation, Pagination, Keyboard, A11y, EffectFade]}
-        effect={slides.length > 1 ? 'fade' : undefined}
-        fadeEffect={{ crossFade: true }}
-        navigation={slides.length > 1 ? {
-          prevEl: '.eventpage__hero-arrow--prev',
-          nextEl: '.eventpage__hero-arrow--next',
-        } : false}
-        pagination={slides.length > 1 ? { clickable: true, el: '.eventpage__hero-pagination' } : false}
-        keyboard={{ enabled: true }}
-        loop={slides.length > 1}
-        speed={700}
-        className="eventpage__hero-swiper"
-      >
-        {slides.map((src, i) => (
-          <SwiperSlide key={src + i}>
-            <div className="eventpage__hero-slide">
-              <img src={src} alt={name} className="eventpage__hero-img" />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {hasSlides ? (
+        <Swiper
+          modules={[Navigation, Pagination, Keyboard, A11y, EffectFade]}
+          effect={slides.length > 1 ? 'fade' : undefined}
+          fadeEffect={{ crossFade: true }}
+          navigation={slides.length > 1 ? {
+            prevEl: '.eventpage__hero-arrow--prev',
+            nextEl: '.eventpage__hero-arrow--next',
+          } : false}
+          pagination={slides.length > 1 ? { clickable: true, el: '.eventpage__hero-pagination' } : false}
+          keyboard={{ enabled: true }}
+          loop={slides.length > 1}
+          speed={700}
+          className="eventpage__hero-swiper"
+        >
+          {slides.map((src, i) => (
+            <SwiperSlide key={src + i}>
+              <div className="eventpage__hero-slide">
+                <img src={src} alt={name} className="eventpage__hero-img" />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      ) : (
+        <div className="eventpage__hero-slide eventpage__hero-slide--empty" />
+      )}
 
       <div className="eventpage__hero-scrim" aria-hidden="true" />
 
