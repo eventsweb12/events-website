@@ -342,6 +342,7 @@
 @media (max-width: 640px) {
   .bloglisting {
     padding: clamp(48px, 14vw, 72px) 20px clamp(56px, 12vw, 80px);
+    padding-top: 75px;
   }
 
   .bloglisting__card {
