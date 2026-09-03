@@ -9,8 +9,8 @@ import BlogpageHero from './blogpagehero'
 const API_URL = 'https://events-admin-omega.vercel.app/api/blog'
 
 const LABELS = {
-  en: { back: 'Back', error: 'Could not load this post.', notFound: 'Post not found.', loading: 'Loading…', source: 'Source' },
-  ka: { back: 'უკან', error: 'პოსტის ჩატვირთვა ვერ მოხერხდა.', notFound: 'პოსტი ვერ მოიძებნა.', loading: 'იტვირთება…', source: 'წყარო' },
+  en: { back: 'Back', error: 'Could not load this post.', notFound: 'Post not found.', loading: 'Loading…', source: 'Source', readFull: 'Read full article' },
+  ka: { back: 'უკან', error: 'პოსტის ჩატვირთვა ვერ მოხერხდა.', notFound: 'პოსტი ვერ მოიძებნა.', loading: 'იტვირთება…', source: 'წყარო', readFull: 'სრული სტატიის ნახვა' },
 }
 
 function pick(field, lang) {
@@ -84,7 +84,7 @@ export default function BlogPage() {
   if (status === 'loading') {
     return (
       <section className="blogpage" data-lang={lang}>
-        <div className="blogpage__hero blogpage__hero--skeleton" aria-hidden="true" />
+        <div className="blogpage__media blogpage__media--skeleton" aria-hidden="true" />
         <p className="blogpage__status">{t.loading}</p>
       </section>
     )
@@ -113,34 +113,50 @@ export default function BlogPage() {
   const sourceUrl = post.source?.url
 
   return (
-    <section className="blogpage" data-lang={lang}>
-      <button type="button" onClick={goBack} className="blogpage__back">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M15 5L8 12L15 19" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-        {t.back}
-      </button>
+    <section className="blogpage blogpage--split" data-lang={lang}>
+      <div className="blogpage__split">
+        <BlogpageHero slides={slides} title={title} />
 
-      <BlogpageHero slides={slides} title={title} date={date} />
+        <div className="blogpage__panel">
+          <button type="button" onClick={goBack} className="blogpage__back blogpage__back--inline">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M15 5L8 12L15 19" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            {t.back}
+          </button>
 
-      <div className="blogpage__content-wrap">
-        <article className="blogpage__article">
-          <div className="blogpage__content" dangerouslySetInnerHTML={{ __html: content }} />
+          {date && <span className="blogpage__badge">{date}</span>}
+          <h1 className="blogpage__title">{title}</h1>
 
-          {sourceName && sourceUrl && (
-            <div className="blogpage__source">
-              <span className="blogpage__source-label">{t.source}</span>
-              
-               <a href={sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="blogpage__source-link"
-              >
-                {sourceName}
-              </a>
-            </div>
-          )}
-        </article>
+          <article className="blogpage__article">
+            <div className="blogpage__content" dangerouslySetInnerHTML={{ __html: content }} />
+
+      {sourceName && sourceUrl && (
+  <div className="blogpage__source">
+    
+      <a href={sourceUrl}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      className="blogpage__source-cta"
+    >
+      {t.readFull}
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M9 5L16 12L9 19" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </a>
+
+    
+     <a href={sourceUrl}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      className="blogpage__source-label"
+    >
+      {t.source}: {sourceName}
+    </a>
+  </div>
+)}
+          </article>
+        </div>
       </div>
     </section>
   )
