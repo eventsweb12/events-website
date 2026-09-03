@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 import './bloglisting.css'
 import { useLanguage } from '../language/LanguageContext'
 
@@ -136,39 +137,39 @@ export default function BlogListing() {
       {status === 'ready' && posts.length > 0 && (
         <>
           <div className="bloglisting__grid">
-        {pagePosts.map((post) => {
-  const title = pick(post.title, lang)
-  const excerpt = pick(post.excerpt, lang)
-  const image = pickImage(post)
-  const sourceName = post.source?.name
+            {pagePosts.map((post) => {
+              const title = pick(post.title, lang)
+              const excerpt = pick(post.excerpt, lang)
+              const image = pickImage(post)
+              const sourceName = post.source?.name
 
-  return (
-    <a key={post._id}
-      className="bloglisting__card"
-      href={`/blog/${post.slug || post._id}`}
-    >
-      <div className="bloglisting__image-wrap">
-        {image && (
-          <img
-            className="bloglisting__image"
-            src={image}
-            alt={title}
-            loading="lazy"
-          />
-        )}
-        <div className="bloglisting__scrim" aria-hidden="true" />
-      </div>
+              return (
+                <Link key={post._id}
+                  className="bloglisting__card"
+                  href={`/blog/${post.slug || post._id}`}
+                >
+                  <div className="bloglisting__image-wrap">
+                    {image && (
+                      <img
+                        className="bloglisting__image"
+                        src={image}
+                        alt={title}
+                        loading="lazy"
+                      />
+                    )}
+                    <div className="bloglisting__scrim" aria-hidden="true" />
+                  </div>
 
-      <div className="bloglisting__body">
-        {sourceName && (
-          <span className="bloglisting__source-tag">{sourceName}</span>
-        )}
-        <h3 className="bloglisting__name">{title}</h3>
-        {excerpt && <p className="bloglisting__desc">{excerpt}</p>}
-      </div>
-    </a>
-  )
-})}
+                  <div className="bloglisting__body">
+                    {sourceName && (
+                      <span className="bloglisting__source-tag">{sourceName}</span>
+                    )}
+                    <h3 className="bloglisting__name">{title}</h3>
+                    {excerpt && <p className="bloglisting__desc">{excerpt}</p>}
+                  </div>
+                </Link>
+              )
+            })}
           </div>
 
           {totalPages > 1 && (

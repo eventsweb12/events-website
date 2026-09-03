@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 import './eventslisting.css'
 import { useLanguage } from '../language/LanguageContext'
 
@@ -138,11 +139,10 @@ export default function EventsListing() {
             {pageEvents.map((ev) => {
               const name = pick(ev.eventName, lang) || pick(ev.title, lang)
               const desc = pick(ev.about, lang)
-           
 
               return (
-                
-                 <a key={ev._id}
+                <Link
+                  key={ev._id}
                   className="eventslisting__card"
                   href={`/events/${ev._id}`}
                 >
@@ -159,11 +159,10 @@ export default function EventsListing() {
                   </div>
 
                   <div className="eventslisting__body">
-                  
                     <h3 className="eventslisting__name">{name}</h3>
                     {desc && <p className="eventslisting__desc">{desc}</p>}
                   </div>
-                </a>
+                </Link>
               )
             })}
           </div>
