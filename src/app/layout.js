@@ -55,7 +55,7 @@ export const metadata = {
       "Full-service creative events agency delivering opening events, brand launches, and unforgettable brand experiences across Georgia and beyond.",
     images: [
       {
-        url: "/og-image.jpg", // 1200x630 რეკომენდირებული
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Motion Concept — Creative Events & Brand Experiences",
@@ -74,9 +74,22 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&family=Varela+Round&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.2.5/index.min.css"
+        />
+      </head>
       <body>
         <LanguageProvider>
           <Header />
@@ -85,5 +98,5 @@ export default function RootLayout({ children }) {
         </LanguageProvider>
       </body>
     </html>
-  );
+  )
 }
