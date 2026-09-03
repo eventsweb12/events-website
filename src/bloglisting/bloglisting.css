@@ -391,3 +391,22 @@
     animation: none;
   }
 }
+
+
+/* ---------- Source tag ---------- */
+
+.bloglisting__source-tag {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 4px;
+}
+
+.bloglisting[data-lang='ka'] .bloglisting__source-tag {
+  font-family: "Roboto", sans-serif;
+}

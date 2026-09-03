@@ -81,14 +81,23 @@ export default function BlogPage() {
     }
   }
 
-  if (status === 'loading') {
-    return (
-      <section className="blogpage" data-lang={lang}>
+ if (status === 'loading') {
+  return (
+    <section className="blogpage" data-lang={lang}>
+      <div className="blogpage__split">
         <div className="blogpage__media blogpage__media--skeleton" aria-hidden="true" />
-        <p className="blogpage__status">{t.loading}</p>
-      </section>
-    )
-  }
+        <div className="blogpage__panel" aria-hidden="true">
+          <span className="blogpage__skel blogpage__skel--badge" />
+          <span className="blogpage__skel blogpage__skel--title" />
+          <span className="blogpage__skel blogpage__skel--title-short" />
+          <span className="blogpage__skel blogpage__skel--line" />
+          <span className="blogpage__skel blogpage__skel--line" />
+          <span className="blogpage__skel blogpage__skel--line-short" />
+        </div>
+      </div>
+    </section>
+  )
+}
 
   if (status === 'notfound' || status === 'error') {
     return (
