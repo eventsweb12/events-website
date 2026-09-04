@@ -2,7 +2,6 @@ import "./globals.css";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import { LanguageProvider } from "../language/LanguageContext";
-
 export const metadata = {
   metadataBase: new URL('https://motionconcept.ge'),
   title: {
@@ -55,7 +54,7 @@ export const metadata = {
       "Full-service creative events agency delivering opening events, brand launches, and unforgettable brand experiences across Georgia and beyond.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/link.png",
         width: 1200,
         height: 630,
         alt: "Motion Concept — Creative Events & Brand Experiences",
@@ -67,14 +66,13 @@ export const metadata = {
     title: "Motion Concept | Creative Events & Brand Experiences",
     description:
       "Full-service creative events agency delivering opening events, brand launches, and unforgettable brand experiences.",
-    images: ["/og-image.jpg"],
+    images: ["/link.png"],
   },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
 };
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
