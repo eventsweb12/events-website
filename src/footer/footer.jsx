@@ -2,9 +2,11 @@
 
 import React from 'react'
 import './footer.css'
+import lottie from 'lottie-web'
 import { useLanguage } from '../language/LanguageContext'
-
-const logo = '/logos/logo3.gif'
+import logoAnimation from '../../public/logos/motion-concept.json'
+// ^ adjust the relative path so it points at wherever motion-concept.json
+//   actually lives in your project.
 
 const SOCIAL_LINKS = [
   {
@@ -142,6 +144,35 @@ const COPY = {
   },
 }
 
+// Same lottie-web pattern used in Header — drives the animation
+// imperatively via a ref instead of relying on a <Lottie> component.
+function FooterLogo() {
+  const containerRef = React.useRef(null)
+
+  React.useEffect(() => {
+    if (!containerRef.current) return
+
+    const anim = lottie.loadAnimation({
+      container: containerRef.current,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: logoAnimation,
+    })
+
+    return () => anim.destroy()
+  }, [])
+
+  return (
+    <div
+      ref={containerRef}
+      className="footer__brand-logo-anim"
+      role="img"
+      aria-label="Motion Concept"
+    />
+  )
+}
+
 function Footer() {
   const { lang } = useLanguage()
   const t = COPY[lang]
@@ -151,7 +182,7 @@ function Footer() {
     <footer className="footer" data-lang={lang}>
       <div className="footer__grid">
         <div>
-          <img className="footer__brand-logo" src={logo} alt="Motion Concept" />
+          <FooterLogo />
           <div className="footer__social">
             {SOCIAL_LINKS.map((social) => (
               

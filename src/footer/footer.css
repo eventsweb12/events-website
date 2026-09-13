@@ -69,6 +69,22 @@ margin: 0 0 16px;
 margin-left: -18px;
 }
 
+/* Lottie-driven logo (replaces the old <img>/GIF sizing above) */
+.footer__brand-logo-anim {
+height: 54px;
+width: auto;
+aspect-ratio: 1250 / 250; /* matches the animation's native 1250x250 canvas */
+display: block;
+margin: 0 0 16px;
+margin-left: -18px;
+}
+
+.footer__brand-logo-anim svg {
+height: 100%;
+width: 100%;
+display: block;
+}
+
 .footer__brand-tagline {
 margin: 0;
 max-width: 34ch;

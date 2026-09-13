@@ -4,7 +4,13 @@ import React from 'react'
 import { createPortal } from 'react-dom'
 import './header.css'
 import Link from 'next/link'
+import lottie from 'lottie-web'
 import { useLanguage } from '../language/LanguageContext'
+import logoAnimation from '../../public/logos/motion-concept.json'
+// ^ adjust the relative path so it points at wherever motion-concept.json
+//   actually lives in your project — importing it directly (instead of
+//   fetching '/logos/motion-concept.json' at runtime) lets Next.js bundle
+//   it and avoids a network request + loading flash.
 
 const NAV_LINKS = [
   { href: '/', en: 'Home', ka: 'მთავარი' },
@@ -15,11 +21,40 @@ const NAV_LINKS = [
   { href: '/contact', en: 'Contact', ka: 'კონტაქტი' },
 ]
 
-const logo = '/logos/logo3.gif'
-
 const COPY = {
   en: { callUs: 'Call us' },
   ka: { callUs: 'დაგვირეკეთ' },
+}
+
+// Small reusable piece so the animation isn't duplicated between
+// the desktop nav and the mobile sidebar. Drives lottie-web directly
+// (instead of rendering a <Lottie> element) to sidestep lottie-react's
+// unreliable default-export resolution under Turbopack.
+function Logo({ label, className }) {
+  const containerRef = React.useRef(null)
+
+  React.useEffect(() => {
+    if (!containerRef.current) return
+
+    const anim = lottie.loadAnimation({
+      container: containerRef.current,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: logoAnimation,
+    })
+
+    return () => anim.destroy()
+  }, [])
+
+  return (
+    <div
+      ref={containerRef}
+      className={`header__logo-anim${className ? ` ${className}` : ''}`}
+      role="img"
+      aria-label={label}
+    />
+  )
 }
 
 export default function Header({
@@ -89,7 +124,7 @@ export default function Header({
       >
         <div className="header__mobile-top">
           <span className="header__mobile-brand">
-            <img src={logo} alt={logoText} />
+            <Logo label={logoText} className="header__mobile-brand-anim" />
           </span>
           <button
             className="header__mobile-close"
@@ -126,7 +161,7 @@ export default function Header({
     <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <nav className="header__nav">
         <Link className="header__logo" href="/" onClick={handleLogoClick}>
-          <img src={logo} alt={logoText} />
+          <Logo label={logoText} />
         </Link>
 
         <ul className="header__links">
