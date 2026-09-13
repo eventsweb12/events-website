@@ -1,5 +1,3 @@
-
-
 .contactpage,
 .contactpage *,
 .contactpage *::before,
@@ -333,6 +331,20 @@
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
+}
+
+/* Lottie-driven logo (replaces the old <img>/GIF sizing above) */
+.contactpage__logo-anim {
+  height: 56px;
+  width: auto;
+  aspect-ratio: 1250 / 250; /* matches the animation's native 1250x250 canvas */
+  flex-shrink: 0;
+}
+
+.contactpage__logo-anim svg {
+  height: 100%;
+  width: 100%;
+  display: block;
 }
 
 .contactpage__info-divider {

@@ -5,8 +5,10 @@ import Link from 'next/link'
 import './contact.css'
 import { useLanguage } from '../language/LanguageContext'
 import { useForm, ValidationError } from '@formspree/react'
-
-const logo = '/logos/logo3.gif'
+import lottie from 'lottie-web'
+import logoAnimation from '../../public/logos/motion-concept.json'
+// ^ adjust the relative path so it points at wherever motion-concept.json
+//   actually lives in your project.
 
 const COPY = {
   en: {
@@ -120,6 +122,35 @@ function isValidPhone(rawValue) {
 }
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+// Same lottie-web pattern used in Header/Footer — drives the animation
+// imperatively via a ref instead of relying on a <Lottie> component.
+function ContactLogo() {
+  const containerRef = useRef(null)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+
+    const anim = lottie.loadAnimation({
+      container: containerRef.current,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: logoAnimation,
+    })
+
+    return () => anim.destroy()
+  }, [])
+
+  return (
+    <div
+      ref={containerRef}
+      className="contactpage__logo-anim"
+      role="img"
+      aria-label="Motion Concept"
+    />
+  )
+}
 
 function Contact() {
   const { lang } = useLanguage()
@@ -276,7 +307,7 @@ function Contact() {
 
         <div className="contactpage__info">
           <div className="contactpage__info-top">
-            <img src={logo} alt="Logo" className="contactpage__logo" />
+            <ContactLogo />
 
             <span className="contactpage__info-divider" aria-hidden="true" />
 
