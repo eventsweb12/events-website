@@ -42,3 +42,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
+/* Georgian text — Noto Sans Georgian isn't a default system font on
+   Windows, so without an explicit web font Georgian glyphs render with
+   whatever the OS falls back to (often missing/inconsistent). Applies
+   wherever data-lang="ka" is set (or inherited by descendants). */
+[data-lang="ka"] {
+  font-family: "Noto Sans Georgian", 'Roboto', system-ui, sans-serif;
+}
