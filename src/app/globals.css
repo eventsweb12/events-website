@@ -46,6 +46,12 @@ a {
    Windows, so without an explicit web font Georgian glyphs render with
    whatever the OS falls back to (often missing/inconsistent). Applies
    wherever data-lang="ka" is set (or inherited by descendants). */
-[data-lang="ka"] {
-  font-family: "Noto Sans Georgian", 'Roboto', system-ui, sans-serif;
+/* !important here is intentional — dozens of components each set their
+   own font-family under [data-lang="ka"] with varying specificity
+   (Varela Round, Inter, etc). This is a single, sitewide typography rule
+   that should always win for Georgian text, rather than hunting down
+   every scattered override across every component's CSS file. */
+[data-lang="ka"],
+[data-lang="ka"] * {
+  font-family: "Noto Sans Georgian", 'Roboto', system-ui, sans-serif !important;
 }
