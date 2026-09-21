@@ -158,7 +158,7 @@ export default function Header({
   )
 
   return (
-    <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
+    <header className={`header${scrolled ? ' header--scrolled' : ''}`} data-lang={lang}>
       <nav className="header__nav">
         <Link className="header__logo" href="/" onClick={handleLogoClick}>
           <Logo label={logoText} />
