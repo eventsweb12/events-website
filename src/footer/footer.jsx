@@ -132,7 +132,7 @@ const COPY = {
     studioTitle: 'დაგვიკავშირდით',
     studioLinks: [
       { label: '+995 551 11 13 11', href: 'tel:+995551111311' },
-      { label: 'info@motionconcept.ge', href: 'mailto:info@motionconcept.ge' },
+      { label: 'hello@motionconcept.ge', href: 'mailto:hello@motionconcept.ge' },
       { label: 'დაგვიკავშირდით', href: '/contact' },
     ],
     rights: 'ყველა უფლება დაცულია.',
