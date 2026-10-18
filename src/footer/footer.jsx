@@ -11,7 +11,7 @@ import logoAnimation from '../../public/logos/motion-concept.json'
 const SOCIAL_LINKS = [
   {
     name: 'Instagram',
-    href: 'https://instagram.com/youragency',
+    href: 'https://www.instagram.com/motionconcept.ge?dlrf=MTBweXRqNGRxaW9qMw%3D%3D',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <rect x="2.5" y="2.5" width="19" height="19" rx="6" />
