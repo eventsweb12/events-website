@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import './landing.css'
 import Brands from '../brands/brands'
 
-const heroImages = ['/backgrounds/bg1.jpg', '/backgrounds/bg2.jpg', '/backgrounds/bg3.JPG']
+const heroImages = ['/backgrounds/bg1.jpg',  '/backgrounds/bg3.JPG','/backgrounds/bg4.jpg', ]
 
 export default function Hero({
   headline = 'Creative events & brand experiences',
