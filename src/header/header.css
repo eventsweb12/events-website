@@ -1,3 +1,20 @@
+/* ---------------------------------------------------------------
+   Fonts
+   Roboto — Latin UI text
+   Noto Sans Georgian — Georgian glyphs (fallback per-character)
+   Anton — display/logo accent (optional, keep if you use it)
+
+   NOTE: "Google Sans" is Google's internal font and is NOT available
+   on Google Fonts — the old import silently failed. Removed.
+
+   For best performance in Next.js, move this to next/font/google,
+   or put these in <head> instead of @import:
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+--------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+Georgian:wght@100..900&family=Anton&display=swap');
+
 .header,
 .header *,
 .header *::before,
@@ -12,15 +29,41 @@
   --muted: #a9a6a0;
   --amber: #ff2d3d;
   --line: rgba(245, 243, 236, 0.16);
+
+  /* Georgian fallback chain — the browser picks Noto Sans Georgian
+     per-character for ქართული, Roboto for Latin. Works identically
+     on Windows, macOS, Linux, Android. */
+  --font-ui: "Roboto", "Noto Sans Georgian", "BPG Arial", system-ui, sans-serif;
+  --font-display: "Anton", "Noto Sans Georgian", "Roboto", sans-serif;
+
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-ui);
+  font-synthesis-weight: none;
   background: rgba(11, 11, 12, 0.64);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   border-bottom: 1px solid rgba(245, 243, 236, 0.08);
   transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* The mobile sidebar is portalled to document.body, so it sits OUTSIDE
+   .header and can't inherit the variables above. Redeclare them here. */
+.header__mobile,
+.header__mobile *,
+.header__overlay {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.header__mobile {
+  --paper: #f4f2ec;
+  --muted: #a9a6a0;
+  --amber: #ff2d3d;
+  --line: rgba(245, 243, 236, 0.16);
+  --font-ui: "Roboto", "Noto Sans Georgian", "BPG Arial", system-ui, sans-serif;
+  font-family: var(--font-ui);
 }
 
 .header--scrolled {
@@ -37,13 +80,39 @@
   padding: 2px clamp(12px, 3vw, 16px) 2px;
 }
 
+/* ---------- Logo ---------- */
+
 .header__logo {
-  font-family: 'Google Sans', 'Anton', sans-serif;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-display);
   font-size: 22px;
   letter-spacing: 0.04em;
   color: var(--paper);
   text-decoration: none;
   flex-shrink: 0;
+}
+
+.header__logo img,
+.header__logo-img {
+  height: clamp(40px, 8vw, 54px);
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Lottie-driven logo (applied to the injected <div>/<svg>) */
+.header__logo-anim {
+  height: clamp(40px, 8vw, 54px);
+  width: auto;
+  aspect-ratio: 1250 / 250; /* matches the animation's native canvas */
+  display: block;
+}
+
+.header__logo-anim svg {
+  height: 100%;
+  width: 100%;
+  display: block;
 }
 
 /* ---------- Desktop links ---------- */
@@ -60,10 +129,12 @@
   gap: 26px;
   align-items: center;
 }
+
 .header__links a {
   display: flex;
   flex-direction: column;
-  line-height: 1.25;
+  line-height: 1.35;
+  font-family: var(--font-ui);
   color: var(--paper);
   text-decoration: none;
   font-size: 15.5px;
@@ -73,6 +144,12 @@
 
 .header__links a:hover {
   color: var(--amber);
+}
+
+.header__links a:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .header__links small {
@@ -101,6 +178,7 @@
   display: none;
   align-items: center;
   gap: 6px;
+  font-family: var(--font-ui);
   color: var(--paper);
   text-decoration: none;
   font-size: 14px;
@@ -126,7 +204,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font: inherit;
+  font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -147,6 +225,11 @@
   transform: scale(0.97);
 }
 
+.header__lang:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
 .header__lang span {
   transition: color 0.15s ease;
 }
@@ -158,6 +241,8 @@
 .header__lang-sep {
   color: var(--line);
 }
+
+/* ---------- Burger ---------- */
 
 .header__menu {
   display: flex;
@@ -172,6 +257,11 @@
   background: transparent;
   cursor: pointer;
   flex-shrink: 0;
+}
+
+.header__menu:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
 }
 
 .header__menu span {
@@ -196,34 +286,6 @@
   .header__menu {
     display: none;
   }
-}
-
-.header__logo {
-  display: flex;
-  align-items: center;
-}
-
-.header__logo img,
-.header__logo-img {
-  height: clamp(40px, 8vw, 54px);
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
-
-/* Lottie-driven logo (replaces the old <img> sizing rules above,
-   applied to the injected <div>/<svg> instead) */
-.header__logo-anim {
-  height: clamp(40px, 8vw, 54px);
-  width: auto;
-  aspect-ratio: 1250 / 250; /* matches the animation's native 1250x250 canvas */
-  display: block;
-}
-
-.header__logo-anim svg {
-  height: 100%;
-  width: 100%;
-  display: block;
 }
 
 /* ---------- Mobile sidebar overlay ---------- */
@@ -268,7 +330,6 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .header__mobile--open {
@@ -295,7 +356,6 @@
   object-fit: contain;
 }
 
-/* Lottie-driven mobile logo */
 .header__mobile-brand-anim {
   height: 34px;
   width: auto;
@@ -332,6 +392,11 @@
   transform: scale(0.94);
 }
 
+.header__mobile-close:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
 .header__mobile-close svg {
   width: 16px;
   height: 16px;
@@ -358,14 +423,15 @@
 .header__mobile a {
   display: flex;
   flex-direction: column;
+  font-family: var(--font-ui);
   color: var(--paper);
   text-decoration: none;
   font-size: 16.5px;
   font-weight: 500;
+  line-height: 1.4;
   padding: 15px 10px;
   border-radius: 10px;
   transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
-  -webkit-tap-highlight-color: transparent;
   outline: none;
 }
 
@@ -394,6 +460,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  font-family: var(--font-ui);
   color: var(--paper);
   text-decoration: none;
   font-size: 14.5px;
@@ -408,5 +475,17 @@
 @media (min-width: 1180px) {
   .header__mobile {
     display: none;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .header__mobile,
+  .header__overlay,
+  .header__menu span,
+  .header__mobile a {
+    transition-duration: 0.01ms;
   }
 }

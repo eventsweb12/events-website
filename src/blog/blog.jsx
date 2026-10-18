@@ -11,7 +11,7 @@ const API_URL = 'https://events-admin-omega.vercel.app/api/blog'
 const TOTAL = 8 // total posts fetched, all shown in the slider
 
 const LABELS = {
-  en: { eyebrowLabel: 'From the journal', heading: 'Blog', empty: 'No posts yet.', error: 'Could not load posts.', prev: 'Previous', next: 'Next' },
+  en: { eyebrowLabel: 'Media Highlights', heading: 'Blog', empty: 'No posts yet.', error: 'Could not load posts.', prev: 'Previous', next: 'Next' },
   ka: { eyebrowLabel: 'ბლოგიდან', heading: 'ბლოგი', empty: 'პოსტები ჯერ არ არის.', error: 'პოსტების ჩატვირთვა ვერ მოხერხდა.', prev: 'წინა', next: 'შემდეგი' },
 }
 

@@ -11,8 +11,8 @@ const API_URL = 'https://events-admin-omega.vercel.app/api/events'
 const MAX_EVENTS = 7
 
 const LABELS = {
-  en: { eyebrowLabel: 'Selected work', heading: 'Events', empty: 'No events yet.', error: 'Could not load events.', prev: 'Previous', next: 'Next' },
-  ka: { eyebrowLabel: 'შერჩეული პროექტები', heading: 'ივენთები', empty: 'ივენთები ჯერ არ არის.', error: 'ივენთების ჩატვირთვა ვერ მოხერხდა.', prev: 'წინა', next: 'შემდეგი' },
+  en: { eyebrowLabel: 'work', heading: 'Events', empty: 'No events yet.', error: 'Could not load events.', prev: 'Previous', next: 'Next' },
+  ka: { eyebrowLabel: 'პროექტები', heading: 'ივენთები', empty: 'ივენთები ჯერ არ არის.', error: 'ივენთების ჩატვირთვა ვერ მოხერხდა.', prev: 'წინა', next: 'შემდეგი' },
 }
 
 // The API stores multilingual fields as { geo, eng } — not { ka, en } —

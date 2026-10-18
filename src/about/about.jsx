@@ -7,10 +7,10 @@ import { useLanguage } from '../language/LanguageContext'
 const COPY = {
   en: {
     eyebrow: 'About Us',
-    leadBigLines: ['Every extraordinary event', 'starts with an idea.'],
+    leadBigLines: ['Every extraordinary event', 'starts with an idea'],
     lead: [
       'An idea with the power to bring people together, create emotion and turn a moment into an unforgettable experience.',
-      'From creative concept to flawless execution, every detail has one purpose — to create an event with its own character, energy and meaning.',
+      'From creative concept to flawless execution, every detail has one purpose - to create an event with its own character, energy and meaning.',
       'It’s not simply about creating events.',
       'It’s about creating atmosphere, emotion and stories that connect people.',
       'Because the best events are the ones people leave saying:',
@@ -24,19 +24,19 @@ const COPY = {
   },
   ka: {
     eyebrow: 'ჩვენ შესახებ',
-    leadBigLines: ['ყველა განსაკუთრებული ღონისძიება', 'იდეით იწყება.'],
+    leadBigLines: ['განსაკუთრებული ღონისძიება', 'იდეით იწყება'],
     lead: [
       'იდეით, რომელსაც შეუძლია ადამიანების გაერთიანება, ემოციის შექმნა და მომენტის დაუვიწყარ გამოცდილებად ქცევა.',
-      'კრეატიული კონცეფციიდან იდეალურ შესრულებამდე, თითოეული დეტალი ერთ მიზანს ემსახურება — შეიქმნას ღონისძიება, რომელსაც თავისი ხასიათი აქვს და რომელიც ადამიანებს დარჩებათ.',
+      'კრეატიული კონცეფციიდან იდეალურ შესრულებამდე, თითოეული დეტალი ერთ მიზანს ემსახურება - შეიქმნას ღონისძიება, რომელსაც თავისი ხასიათი აქვს და რომელიც ადამიანებს დარჩებათ.',
       'აქ არ იქმნება უბრალოდ ღონისძიებები.',
       'იქმნება ატმოსფერო, ემოცია და ისტორიები, რომლებიც ადამიანებს ერთმანეთთან აკავშირებს.',
       'რადგან საუკეთესო ღონისძიება ის არის, რომლის დასრულების შემდეგაც ამბობენ:',
     ],
     quote: 'ეს ნამდვილად განსაკუთრებული იყო.',
     pillars: [
-      { word: 'კრეატიულობა', desc: 'ახალი ხედვების მოსაძებნად.' },
+      { word: 'კრეატიულობა', desc: 'ახალი ხედვა ყოველ პროექტში.' },
       { word: 'სიზუსტე', desc: 'იდეის სრულყოფილად განსახორციელებლად.' },
-      { word: 'ენერგია', desc: 'თითოეული მომენტი ცოცხალი და განსაკუთრებული რომ იყოს.' },
+      { word: 'ენერგია', desc: 'შევქმათ თითოეული მომენტი ცოცხალი და განსაკუთრებული.' },
     ],
   },
 }

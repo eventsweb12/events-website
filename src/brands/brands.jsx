@@ -5,8 +5,9 @@ import './brands.css'
 
 // All logos combined into a single marquee row
 const LOGOS = [
-  '/logos/l1.png', '/logos/l2.png', '/logos/l3.png', '/logos/l4.png',
+  '/logos/l1.png', '/logos/l2.png', '/logos/l3.png', 
   '/logos/l5.png', '/logos/l6.png', '/logos/l7.png', '/logos/l8.png',
+  '/logos/l4.png',
   '/logos/l9.png', '/logos/l10.png', '/logos/l11.png',
   '/logos/l12.png', '/logos/l13.png', '/logos/l14.png',
 ]

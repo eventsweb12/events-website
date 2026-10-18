@@ -10,7 +10,7 @@ const PER_PAGE = 12
 
 const LABELS = {
   en: {
-    eyebrowLabel: 'From the journal',
+    eyebrowLabel: 'Media Highlights',
     heading: 'Blog',
     empty: 'No posts yet.',
     error: 'Could not load posts.',
@@ -18,7 +18,7 @@ const LABELS = {
     next: 'Next',
   },
   ka: {
-    eyebrowLabel: 'ბლოგიდან',
+    eyebrowLabel: 'მედია გაშუქება',
     heading: 'ბლოგი',
     empty: 'პოსტები ჯერ არ არის.',
     error: 'პოსტების ჩატვირთვა ვერ მოხერხდა.',

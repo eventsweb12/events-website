@@ -5,16 +5,28 @@ import React, { createContext, useContext, useState, useEffect } from 'react'
 const LanguageContext = createContext(null)
 
 export function LanguageProvider({ children, defaultLang = 'en' }) {
-  const [lang, setLang] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('lang') || defaultLang
-    }
-    return defaultLang
-  })
+  // Must be identical on server and on the first client render
+  const [lang, setLang] = useState(defaultLang)
+  const [ready, setReady] = useState(false)
 
+  // 1) After hydration: read the saved language
   useEffect(() => {
-    localStorage.setItem('lang', lang)
-  }, [lang])
+    try {
+      const saved = localStorage.getItem('lang')
+      if (saved === 'en' || saved === 'ka') setLang(saved)
+    } catch {}
+    setReady(true)
+  }, [])
+
+  // 2) Save only after the saved value has been read,
+  //    otherwise 'en' would overwrite the stored 'ka'
+  useEffect(() => {
+    if (!ready) return
+    try {
+      localStorage.setItem('lang', lang)
+    } catch {}
+    document.documentElement.lang = lang
+  }, [lang, ready])
 
   const toggleLang = () => setLang((l) => (l === 'en' ? 'ka' : 'en'))
 

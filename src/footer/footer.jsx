@@ -65,7 +65,7 @@ const COPY = {
           { label: 'About Us', href: '/#about' },
           { label: 'Our Work', href: '/eventslisting' },
           { label: 'Blog', href: '/bloglisting' },
-          { label: 'contact', href: '/contact' },
+          { label: 'Contact', href: '/contact' },
         ],
       },
       {
@@ -88,15 +88,13 @@ const COPY = {
         ],
       },
     ],
-    studioTitle: 'Studio',
+    studioTitle: 'Contact us',
     studioLinks: [
       { label: '+995 551 11 13 11', href: 'tel:+995551111311' },
       { label: 'hello@motionconcept.ge', href: 'mailto:hello@motionconcept.ge' },
       { label: 'Get in touch', href: '/contact' },
     ],
     rights: 'All rights reserved.',
-    privacy: 'Privacy Policy',
-    terms: 'Terms of Use',
     creditPrefix: 'Designed & developed by',
   },
   ka: {
@@ -131,15 +129,13 @@ const COPY = {
         ],
       },
     ],
-    studioTitle: 'სტუდია',
+    studioTitle: 'დაგვიკავშირდით',
     studioLinks: [
       { label: '+995 551 11 13 11', href: 'tel:+995551111311' },
       { label: 'info@motionconcept.ge', href: 'mailto:info@motionconcept.ge' },
       { label: 'დაგვიკავშირდით', href: '/contact' },
     ],
     rights: 'ყველა უფლება დაცულია.',
-    privacy: 'კონფიდენციალურობის პოლიტიკა',
-    terms: 'გამოყენების პირობები',
     creditPrefix: 'დამზადებულია',
   },
 }
@@ -185,8 +181,8 @@ function Footer() {
           <FooterLogo />
           <div className="footer__social">
             {SOCIAL_LINKS.map((social) => (
-              
-               <a key={social.name}
+              <a
+                key={social.name}
                 className="footer__social-link"
                 href={social.href}
                 target="_blank"
@@ -227,8 +223,6 @@ function Footer() {
       <div className="footer__bottom">
         <div className="footer__legal">
           <span>© {year} Motion Concept. {t.rights}</span>
-          <a href="/privacy-policy">{t.privacy}</a>
-          <a href="/terms">{t.terms}</a>
           <span className="footer__credit">
             {t.creditPrefix}{' '}
             <a href="https://sitefy.ge/" target="_blank" rel="noopener noreferrer">
