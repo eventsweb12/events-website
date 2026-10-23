@@ -32,7 +32,7 @@ const COPY = {
     ],
   },
   ka: {
-    eyebrowLabel: 'რასაც ვაკეთებთ',
+    eyebrowLabel: 'ჩვენი საქმიანობა',
     heading: 'სერვისები',
     toggleMore: 'ყველა სერვისის ნახვა',
     toggleLess: 'ნაკლების ჩვენება',
