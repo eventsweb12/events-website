@@ -17,9 +17,9 @@ const COPY = {
     ],
     quote: 'That was truly something special.',
     pillars: [
-      { word: 'Creativity', desc: 'to see beyond the expected.' },
-      { word: 'Precision', desc: 'to turn every idea into reality.' },
-      { word: 'Energy', desc: 'to make every moment feel alive.' },
+      { word: 'Creativity', desc: 'to see beyond the expected' },
+      { word: 'Precision', desc: 'to turn every idea into reality' },
+      { word: 'Energy', desc: 'to make every moment feel alive' },
     ],
   },
   ka: {
@@ -34,9 +34,9 @@ const COPY = {
     ],
     quote: 'ეს ნამდვილად განსაკუთრებული იყო.',
     pillars: [
-      { word: 'კრეატიულობა', desc: 'ახალი ხედვა ყოველ პროექტში.' },
-      { word: 'სიზუსტე', desc: 'იდეის სრულყოფილად განსახორციელებლად.' },
-      { word: 'ენერგია', desc: 'შევქმათ თითოეული მომენტი ცოცხალი და განსაკუთრებული.' },
+      { word: 'კრეატიულობა', desc: 'ახალი ხედვა ყოველ პროექტში' },
+      { word: 'სიზუსტე', desc: 'იდეის სრულყოფილად განსახორციელებლად' },
+      { word: 'ენერგია', desc: 'შევქმათ თითოეული მომენტი ცოცხალი და განსაკუთრებული' },
     ],
   },
 }
@@ -65,7 +65,6 @@ export default function About() {
             </p>
 
             <blockquote className="about__stamp">
-              <span className="about__stamp-mark" aria-hidden="true">"</span>
               <p>{t.quote}</p>
             </blockquote>
           </div>
