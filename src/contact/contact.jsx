@@ -75,7 +75,7 @@ const CONTACT_INFO = {
 const SOCIAL_LINKS = [
   {
     name: 'Facebook',
-    href: 'https://facebook.com/yourstudio',
+    href: '#',
     shape: 'circle',
     icon: (
       <svg viewBox="0 0 24 24" fill="none">
@@ -88,7 +88,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: 'Instagram',
-    href: 'https://instagram.com/yourstudio',
+    href: 'https://www.instagram.com/motionconcept.ge',
     shape: 'square',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -100,7 +100,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/company/yourstudio',
+    href: '#',
     shape: 'square',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">

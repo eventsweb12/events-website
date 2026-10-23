@@ -11,7 +11,7 @@ import logoAnimation from '../../public/logos/motion-concept.json'
 const SOCIAL_LINKS = [
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/motionconcept.ge?dlrf=MTBweXRqNGRxaW9qMw%3D%3D',
+    href: 'https://www.instagram.com/motionconcept.ge',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <rect x="2.5" y="2.5" width="19" height="19" rx="6" />
@@ -22,7 +22,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: 'Facebook',
-    href: 'https://facebook.com/youragency',
+    href: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <circle cx="12" cy="12" r="9.5" />
@@ -32,7 +32,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/company/youragency',
+    href: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
@@ -45,7 +45,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: 'TikTok',
-    href: 'https://tiktok.com/@youragency',
+    href: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="M14.2 3.5v11.3a3.6 3.6 0 1 1-3.6-3.6" strokeLinecap="round" strokeLinejoin="round" />
